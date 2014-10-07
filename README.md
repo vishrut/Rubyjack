@@ -6,6 +6,8 @@ You can run this game by
 
     ruby BlackjackGame.rb
 
+![There was supposed to be an image here :/](https://github.com/vishrut/blob/master/rj.png "I like the retro look")
+
 Rules of the game:
 
 *  Dealer hits on 16 and stands on hard and soft 17
