@@ -6,11 +6,11 @@ class GameIO
   def initialize
     # All messages are stored in a map for convenient re-usability
     @messages = {"invalid_bet" => "Invalid bet. Your bet must be between 0 and your available amount.",
-                 "input_player_count" => "Please enter the number of players.",
+                 "input_player_count" => "Please enter the number of players - ",
                  "input_shoe_size" => "Please enter the number of decks.",
                  "instructions" => "Game instructions go here.",
                  "make_bet" => "Please enter the bet amount.",
-                 "hit_or_stay" => "Enter s to stand, or h to hit.",
+                 "hit_or_stay" => "Enter s to stand\nEnter h to hit.",
                  "dealer_blackjack_1" => "Dealer has blackjack!",
                  "dealer_busted" => "Dealer busted!",
                  "blackjack_tie" => "Dealer and player both have a blackjack. Bet pushed back.",
@@ -36,7 +36,18 @@ class GameIO
   
   # Print game instructions
   def print_instructions
-    self.print_msg("instructions")
+    puts ""
+    puts "Rules of the game:"
+    puts "*  Dealer hits on 16 and stands on hard and soft 17"
+    puts "*  Players start with $1000"
+    puts "*  Players can double-down on split"
+    puts "*  Blackjack is paid out at 3:2"
+    puts "*  Normal win is paid out at 1:1"
+    puts "*  Blackjacks on split are also paid out at 3:2"
+    puts "*  Aces automatically assume the optimal values"
+    puts "*  You will only see the commands for doubling down and split if you have enough money"
+    puts "*  No hole card. Dealer does not peek"
+    puts ""
   end
   
   # Get the player count from the input
