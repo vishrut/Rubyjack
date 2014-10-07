@@ -179,7 +179,8 @@
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">initialize</span>
   <span class="ruby-identifier">values</span> = <span class="ruby-constant">Array</span>[<span class="ruby-value">1</span>,<span class="ruby-value">2</span>,<span class="ruby-value">3</span>,<span class="ruby-value">4</span>,<span class="ruby-value">5</span>,<span class="ruby-value">6</span>,<span class="ruby-value">7</span>,<span class="ruby-value">8</span>,<span class="ruby-value">9</span>,<span class="ruby-value">10</span>,<span class="ruby-value">10</span>,<span class="ruby-value">10</span>,<span class="ruby-value">10</span>]
   <span class="ruby-identifier">symbols</span> = <span class="ruby-constant">Array</span>[<span class="ruby-string">'A'</span>,<span class="ruby-string">'2'</span>,<span class="ruby-string">'3'</span>,<span class="ruby-string">'4'</span>,<span class="ruby-string">'5'</span>,<span class="ruby-string">'6'</span>,<span class="ruby-string">'7'</span>,<span class="ruby-string">'8'</span>,<span class="ruby-string">'9'</span>,<span class="ruby-string">'10'</span>,<span class="ruby-string">'J'</span>,<span class="ruby-string">'Q'</span>,<span class="ruby-string">'K'</span>]
-  <span class="ruby-identifier">suits</span> = [<span class="ruby-string">&quot;\x03&quot;</span>,<span class="ruby-string">&quot;\x04&quot;</span>,<span class="ruby-string">&quot;\x05&quot;</span>,<span class="ruby-string">&quot;\x06&quot;</span>] <span class="ruby-comment"># ASCII values for card suits</span>
+  <span class="ruby-comment">#suits = [&quot;\x03&quot;,&quot;\x04&quot;,&quot;\x05&quot;,&quot;\x06&quot;] # ASCII values for card suits</span>
+  <span class="ruby-identifier">suits</span> = [<span class="ruby-string">&quot;H&quot;</span>,<span class="ruby-string">&quot;D&quot;</span>,<span class="ruby-string">&quot;S&quot;</span>,<span class="ruby-string">&quot;C&quot;</span>]
   
   <span class="ruby-ivar">@cards</span> = <span class="ruby-constant">Array</span>.<span class="ruby-identifier">new</span>
   
@@ -222,7 +223,7 @@
 
           
           <div class="method-source-code" id="get_cards-source">
-            <pre><span class="ruby-comment"># File Deck.rb, line 24</span>
+            <pre><span class="ruby-comment"># File Deck.rb, line 25</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">get_cards</span>
   <span class="ruby-keyword">return</span> <span class="ruby-ivar">@cards</span>
 <span class="ruby-keyword">end</span></pre>

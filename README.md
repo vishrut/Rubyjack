@@ -18,4 +18,6 @@ Rules of the game:
 *  You will only see the commands for doubling down and split if you have enough money
 *  No hole card. Dealer does not peek.
 
+You can have a look at the Rdoc generated docs for more info.
+
 Have fun!

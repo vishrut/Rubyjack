@@ -45,13 +45,6 @@ class BlackjackGame
     
     @game_io.print_start_round
     
-    # Remove bankrupt players, exit if everyone is bankrupt
-    remove_bankrupt_players
-    if !are_active_players
-      @game_io.print_end
-      return
-    end
-    
     # Clear all hands and reset the shoe
     clear_hands
     @shoe.reset
@@ -70,8 +63,13 @@ class BlackjackGame
     
     # Compare all hands with the dealers hand
     evaluate_all_hands
-    
-    #@game_io.print_end_round
+        
+    # Remove bankrupt players, exit if everyone is bankrupt
+    remove_bankrupt_players
+    if !are_active_players
+      @game_io.print_end
+      return
+    end
     
     # Start the next round
     start_round

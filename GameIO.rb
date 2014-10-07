@@ -45,7 +45,7 @@ class GameIO
     puts "*  Normal win is paid out at 1:1"
     puts "*  Blackjacks on split are also paid out at 3:2"
     puts "*  Aces automatically assume the optimal values"
-    puts "*  You will only see the commands for doubling down and split if you have enough money"
+    puts "*  Doubling down and split commands only visible if you have enough money"
     puts "*  No hole card. Dealer does not peek"
     puts ""
   end

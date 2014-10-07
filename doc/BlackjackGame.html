@@ -305,7 +305,7 @@ the high level game logic.</p>
 
           
           <div class="method-source-code" id="all_play-source">
-            <pre><span class="ruby-comment"># File BlackjackGame.rb, line 81</span>
+            <pre><span class="ruby-comment"># File BlackjackGame.rb, line 79</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">all_play</span>
   <span class="ruby-ivar">@players</span>.<span class="ruby-identifier">each</span>{ <span class="ruby-operator">|</span><span class="ruby-identifier">player</span><span class="ruby-operator">|</span>
     <span class="ruby-keyword">if</span> <span class="ruby-operator">!</span><span class="ruby-identifier">player</span>.<span class="ruby-identifier">is_bankrupt</span>
@@ -341,7 +341,7 @@ otherwise</p>
 
           
           <div class="method-source-code" id="are_active_players-source">
-            <pre><span class="ruby-comment"># File BlackjackGame.rb, line 106</span>
+            <pre><span class="ruby-comment"># File BlackjackGame.rb, line 104</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">are_active_players</span>
   <span class="ruby-identifier">count</span> = <span class="ruby-value">0</span>
   <span class="ruby-ivar">@players</span>.<span class="ruby-identifier">each</span>{ <span class="ruby-operator">|</span><span class="ruby-identifier">player</span><span class="ruby-operator">|</span>
@@ -381,7 +381,7 @@ otherwise</p>
 
           
           <div class="method-source-code" id="clear_hands-source">
-            <pre><span class="ruby-comment"># File BlackjackGame.rb, line 121</span>
+            <pre><span class="ruby-comment"># File BlackjackGame.rb, line 119</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">clear_hands</span>
   <span class="ruby-ivar">@players</span>.<span class="ruby-identifier">each</span>{ <span class="ruby-operator">|</span><span class="ruby-identifier">player</span><span class="ruby-operator">|</span>
     <span class="ruby-identifier">player</span>.<span class="ruby-identifier">clear_hand</span>
@@ -414,7 +414,7 @@ otherwise</p>
 
           
           <div class="method-source-code" id="compare_hands-source">
-            <pre><span class="ruby-comment"># File BlackjackGame.rb, line 186</span>
+            <pre><span class="ruby-comment"># File BlackjackGame.rb, line 184</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">compare_hands</span>(<span class="ruby-identifier">player</span>)
   <span class="ruby-keyword">if</span> <span class="ruby-identifier">player</span>.<span class="ruby-identifier">is_split</span>
     <span class="ruby-ivar">@game_io</span>.<span class="ruby-identifier">print_split_separator_1</span>
@@ -481,7 +481,7 @@ otherwise</p>
 
           
           <div class="method-source-code" id="compare_split_hand-source">
-            <pre><span class="ruby-comment"># File BlackjackGame.rb, line 228</span>
+            <pre><span class="ruby-comment"># File BlackjackGame.rb, line 226</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">compare_split_hand</span>(<span class="ruby-identifier">player</span>)
   <span class="ruby-ivar">@game_io</span>.<span class="ruby-identifier">print_split_vs_msg</span>(<span class="ruby-identifier">player</span>, <span class="ruby-identifier">dealer</span>)
   <span class="ruby-keyword">if</span> <span class="ruby-identifier">player</span>.<span class="ruby-identifier">is_split_busted</span>
@@ -539,7 +539,7 @@ otherwise</p>
 
           
           <div class="method-source-code" id="deal_cards-source">
-            <pre><span class="ruby-comment"># File BlackjackGame.rb, line 261</span>
+            <pre><span class="ruby-comment"># File BlackjackGame.rb, line 259</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">deal_cards</span>
   <span class="ruby-ivar">@game_io</span>.<span class="ruby-identifier">print_deal_cards</span>
   <span class="ruby-keyword">for</span> <span class="ruby-identifier">i</span> <span class="ruby-keyword">in</span> <span class="ruby-value">1</span><span class="ruby-operator">..</span><span class="ruby-value">2</span>
@@ -577,7 +577,7 @@ their plays</p>
 
           
           <div class="method-source-code" id="dealers_play-source">
-            <pre><span class="ruby-comment"># File BlackjackGame.rb, line 129</span>
+            <pre><span class="ruby-comment"># File BlackjackGame.rb, line 127</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">dealers_play</span>
   <span class="ruby-ivar">@game_io</span>.<span class="ruby-identifier">print_dealers_hand</span>(<span class="ruby-identifier">dealer</span>)
   
@@ -629,7 +629,7 @@ their plays</p>
 
           
           <div class="method-source-code" id="evaluate_all_hands-source">
-            <pre><span class="ruby-comment"># File BlackjackGame.rb, line 174</span>
+            <pre><span class="ruby-comment"># File BlackjackGame.rb, line 172</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">evaluate_all_hands</span>
   <span class="ruby-ivar">@players</span>.<span class="ruby-identifier">each</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">player</span><span class="ruby-operator">|</span>
     <span class="ruby-identifier">compare_hands</span>(<span class="ruby-identifier">player</span>)
@@ -661,7 +661,7 @@ their plays</p>
 
           
           <div class="method-source-code" id="hit-source">
-            <pre><span class="ruby-comment"># File BlackjackGame.rb, line 273</span>
+            <pre><span class="ruby-comment"># File BlackjackGame.rb, line 271</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">hit</span>(<span class="ruby-identifier">player</span>)
   <span class="ruby-identifier">card</span> = <span class="ruby-ivar">@shoe</span>.<span class="ruby-identifier">retrieve_card</span>
   <span class="ruby-identifier">player</span>.<span class="ruby-identifier">add_card_to_hand</span>(<span class="ruby-identifier">card</span>)
@@ -692,7 +692,7 @@ their plays</p>
 
           
           <div class="method-source-code" id="hit_split_hand-source">
-            <pre><span class="ruby-comment"># File BlackjackGame.rb, line 279</span>
+            <pre><span class="ruby-comment"># File BlackjackGame.rb, line 277</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">hit_split_hand</span>(<span class="ruby-identifier">player</span>)
   <span class="ruby-identifier">card</span> = <span class="ruby-ivar">@shoe</span>.<span class="ruby-identifier">retrieve_card</span>
   <span class="ruby-identifier">player</span>.<span class="ruby-identifier">add_card_to_split_hand</span>(<span class="ruby-identifier">card</span>)
@@ -723,7 +723,7 @@ their plays</p>
 
           
           <div class="method-source-code" id="pay_player-source">
-            <pre><span class="ruby-comment"># File BlackjackGame.rb, line 181</span>
+            <pre><span class="ruby-comment"># File BlackjackGame.rb, line 179</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">pay_player</span>(<span class="ruby-identifier">player</span>, <span class="ruby-identifier">amount</span>)
   <span class="ruby-identifier">player</span>.<span class="ruby-identifier">add_money</span>(<span class="ruby-identifier">amount</span>)
 <span class="ruby-keyword">end</span></pre>
@@ -753,7 +753,7 @@ their plays</p>
 
           
           <div class="method-source-code" id="play-source">
-            <pre><span class="ruby-comment"># File BlackjackGame.rb, line 333</span>
+            <pre><span class="ruby-comment"># File BlackjackGame.rb, line 331</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">play</span>(<span class="ruby-identifier">player</span>)
   <span class="ruby-ivar">@game_io</span>.<span class="ruby-identifier">print_hand</span>(<span class="ruby-identifier">player</span>)
   
@@ -816,7 +816,7 @@ their plays</p>
 
           
           <div class="method-source-code" id="play_split-source">
-            <pre><span class="ruby-comment"># File BlackjackGame.rb, line 296</span>
+            <pre><span class="ruby-comment"># File BlackjackGame.rb, line 294</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">play_split</span>(<span class="ruby-identifier">player</span>)
   <span class="ruby-ivar">@game_io</span>.<span class="ruby-identifier">print_split_hand</span>(<span class="ruby-identifier">player</span>)
   
@@ -878,7 +878,7 @@ their plays</p>
 
           
           <div class="method-source-code" id="players_place_bets-source">
-            <pre><span class="ruby-comment"># File BlackjackGame.rb, line 156</span>
+            <pre><span class="ruby-comment"># File BlackjackGame.rb, line 154</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">players_place_bets</span>
   <span class="ruby-ivar">@players</span>.<span class="ruby-identifier">each</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">player</span><span class="ruby-operator">|</span>
     <span class="ruby-keyword">if</span> <span class="ruby-operator">!</span><span class="ruby-identifier">player</span>.<span class="ruby-identifier">is_bankrupt</span>
@@ -921,7 +921,7 @@ their plays</p>
 
           
           <div class="method-source-code" id="remove_bankrupt_players-source">
-            <pre><span class="ruby-comment"># File BlackjackGame.rb, line 91</span>
+            <pre><span class="ruby-comment"># File BlackjackGame.rb, line 89</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">remove_bankrupt_players</span>
   <span class="ruby-comment"># Print all bankrupt players</span>
   <span class="ruby-ivar">@players</span>.<span class="ruby-identifier">each</span>{ <span class="ruby-operator">|</span><span class="ruby-identifier">player</span><span class="ruby-operator">|</span>
@@ -1006,7 +1006,7 @@ their plays</p>
 
           
           <div class="method-source-code" id="split-source">
-            <pre><span class="ruby-comment"># File BlackjackGame.rb, line 285</span>
+            <pre><span class="ruby-comment"># File BlackjackGame.rb, line 283</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">split</span>(<span class="ruby-identifier">player</span>)
   <span class="ruby-ivar">@game_io</span>.<span class="ruby-identifier">print_split_separator_1</span>
   <span class="ruby-identifier">player</span>.<span class="ruby-identifier">split_hand</span>
@@ -1047,13 +1047,6 @@ their plays</p>
   
   <span class="ruby-ivar">@game_io</span>.<span class="ruby-identifier">print_start_round</span>
   
-  <span class="ruby-comment"># Remove bankrupt players, exit if everyone is bankrupt</span>
-  <span class="ruby-identifier">remove_bankrupt_players</span>
-  <span class="ruby-keyword">if</span> <span class="ruby-operator">!</span><span class="ruby-identifier">are_active_players</span>
-    <span class="ruby-ivar">@game_io</span>.<span class="ruby-identifier">print_end</span>
-    <span class="ruby-keyword">return</span>
-  <span class="ruby-keyword">end</span>
-  
   <span class="ruby-comment"># Clear all hands and reset the shoe</span>
   <span class="ruby-identifier">clear_hands</span>
   <span class="ruby-ivar">@shoe</span>.<span class="ruby-identifier">reset</span>
@@ -1072,8 +1065,13 @@ their plays</p>
   
   <span class="ruby-comment"># Compare all hands with the dealers hand</span>
   <span class="ruby-identifier">evaluate_all_hands</span>
-  
-  <span class="ruby-comment">#@game_io.print_end_round</span>
+      
+  <span class="ruby-comment"># Remove bankrupt players, exit if everyone is bankrupt</span>
+  <span class="ruby-identifier">remove_bankrupt_players</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-operator">!</span><span class="ruby-identifier">are_active_players</span>
+    <span class="ruby-ivar">@game_io</span>.<span class="ruby-identifier">print_end</span>
+    <span class="ruby-keyword">return</span>
+  <span class="ruby-keyword">end</span>
   
   <span class="ruby-comment"># Start the next round</span>
   <span class="ruby-identifier">start_round</span>

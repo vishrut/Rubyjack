@@ -8,7 +8,8 @@ class Deck
   def initialize
     values = Array[1,2,3,4,5,6,7,8,9,10,10,10,10]
     symbols = Array['A','2','3','4','5','6','7','8','9','10','J','Q','K']
-    suits = ["\x03","\x04","\x05","\x06"] # ASCII values for card suits
+    #suits = ["\x03","\x04","\x05","\x06"] # ASCII values for card suits
+    suits = ["H","D","S","C"]
     
     @cards = Array.new
     
