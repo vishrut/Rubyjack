@@ -1,0 +1,1138 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+
+<title>class GameIO - RDoc Documentation</title>
+
+<link type="text/css" media="screen" href="./rdoc.css" rel="stylesheet">
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "./";
+</script>
+
+<script type="text/javascript" charset="utf-8" src="./js/jquery.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/navigation.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/search_index.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/search.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/searcher.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/darkfish.js"></script>
+
+
+<body id="top" class="class">
+<nav id="metadata">
+  <nav id="home-section" class="section">
+  <h3 class="section-header">
+    <a href="./index.html">Home</a>
+    <a href="./table_of_contents.html#classes">Classes</a>
+    <a href="./table_of_contents.html#methods">Methods</a>
+  </h3>
+</nav>
+
+
+  <nav id="search-section" class="section project-section" class="initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <h3 class="section-header">
+      <input type="text" name="search" placeholder="Search" id="search-field"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </h3>
+  </form>
+
+  <ul id="search-results" class="initially-hidden"></ul>
+</nav>
+
+
+  <div id="file-metadata">
+    <nav id="file-list-section" class="section">
+  <h3 class="section-header">Defined In</h3>
+  <ul>
+    <li>GameIO.rb
+  </ul>
+</nav>
+
+    
+  </div>
+
+  <div id="class-metadata">
+    
+    <nav id="parent-class-section" class="section">
+  <h3 class="section-header">Parent</h3>
+  
+  <p class="link">Object
+  
+</nav>
+
+    
+    <!-- Method Quickref -->
+<nav id="method-list-section" class="section">
+  <h3 class="section-header">Methods</h3>
+
+  <ul class="link-list">
+    
+    <li><a href="#method-c-new">::new</a>
+    
+    <li><a href="#method-i-get_command">#get_command</a>
+    
+    <li><a href="#method-i-input_bet_value">#input_bet_value</a>
+    
+    <li><a href="#method-i-input_player_count">#input_player_count</a>
+    
+    <li><a href="#method-i-input_shoe_size">#input_shoe_size</a>
+    
+    <li><a href="#method-i-print_all_hands">#print_all_hands</a>
+    
+    <li><a href="#method-i-print_all_players">#print_all_players</a>
+    
+    <li><a href="#method-i-print_blackjack_msg">#print_blackjack_msg</a>
+    
+    <li><a href="#method-i-print_busted_msg">#print_busted_msg</a>
+    
+    <li><a href="#method-i-print_deal_cards">#print_deal_cards</a>
+    
+    <li><a href="#method-i-print_dealers_hand">#print_dealers_hand</a>
+    
+    <li><a href="#method-i-print_end">#print_end</a>
+    
+    <li><a href="#method-i-print_end_round">#print_end_round</a>
+    
+    <li><a href="#method-i-print_hand">#print_hand</a>
+    
+    <li><a href="#method-i-print_instructions">#print_instructions</a>
+    
+    <li><a href="#method-i-print_msg">#print_msg</a>
+    
+    <li><a href="#method-i-print_player">#print_player</a>
+    
+    <li><a href="#method-i-print_player_bankrupt">#print_player_bankrupt</a>
+    
+    <li><a href="#method-i-print_separator">#print_separator</a>
+    
+    <li><a href="#method-i-print_separator_strong">#print_separator_strong</a>
+    
+    <li><a href="#method-i-print_split_hand">#print_split_hand</a>
+    
+    <li><a href="#method-i-print_split_separator_1">#print_split_separator_1</a>
+    
+    <li><a href="#method-i-print_split_separator_2">#print_split_separator_2</a>
+    
+    <li><a href="#method-i-print_split_vs_msg">#print_split_vs_msg</a>
+    
+    <li><a href="#method-i-print_start_round">#print_start_round</a>
+    
+    <li><a href="#method-i-print_vs_msg">#print_vs_msg</a>
+    
+  </ul>
+</nav>
+
+  </div>
+
+  <div id="project-metadata">
+    
+    <nav id="classindex-section" class="section project-section">
+  <h3 class="section-header">Class and Module Index</h3>
+
+  <ul class="link-list">
+  
+    <li><a href="./BlackjackGame.html">BlackjackGame</a>
+  
+    <li><a href="./Card.html">Card</a>
+  
+    <li><a href="./Dealer.html">Dealer</a>
+  
+    <li><a href="./DealerHand.html">DealerHand</a>
+  
+    <li><a href="./Deck.html">Deck</a>
+  
+    <li><a href="./GameIO.html">GameIO</a>
+  
+    <li><a href="./Hand.html">Hand</a>
+  
+    <li><a href="./Player.html">Player</a>
+  
+    <li><a href="./PlayerHand.html">PlayerHand</a>
+  
+    <li><a href="./Shoe.html">Shoe</a>
+  
+  </ul>
+</nav>
+
+  </div>
+</nav>
+
+<div id="documentation">
+  <h1 class="class">class GameIO</h1>
+
+  <div id="description" class="description">
+    
+<p>The <a href="GameIO.html">GameIO</a> class. This class is responsible for
+the input/output operations of the game.</p>
+
+  </div><!-- description -->
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+    <!-- Attributes -->
+    <section id="attribute-method-details" class="method-section section">
+      <h3 class="section-header">Attributes</h3>
+
+      
+      <div id="attribute-i-messages" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">messages</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+    </section><!-- attribute-method-details -->
+    
+
+    <!-- Methods -->
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section section">
+      <h3 class="section-header">Public Class Methods</h3>
+
+    
+      <div id="method-c-new" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">new</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Initialize the <a href="GameIO.html">GameIO</a> class</p>
+          
+
+          
+          <div class="method-source-code" id="new-source">
+            <pre><span class="ruby-comment"># File GameIO.rb, line 6</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">initialize</span>
+  <span class="ruby-comment"># All messages are stored in a map for convenient re-usability</span>
+  <span class="ruby-ivar">@messages</span> = {<span class="ruby-string">&quot;invalid_bet&quot;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;Invalid bet. Your bet must be between 0 and your available amount.&quot;</span>,
+               <span class="ruby-string">&quot;input_player_count&quot;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;Please enter the number of players.&quot;</span>,
+               <span class="ruby-string">&quot;input_shoe_size&quot;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;Please enter the number of decks.&quot;</span>,
+               <span class="ruby-string">&quot;instructions&quot;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;Game instructions go here.&quot;</span>,
+               <span class="ruby-string">&quot;make_bet&quot;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;Please enter the bet amount.&quot;</span>,
+               <span class="ruby-string">&quot;hit_or_stay&quot;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;Enter s to stand, or h to hit.&quot;</span>,
+               <span class="ruby-string">&quot;dealer_blackjack_1&quot;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;Dealer has blackjack!&quot;</span>,
+               <span class="ruby-string">&quot;dealer_busted&quot;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;Dealer busted!&quot;</span>,
+               <span class="ruby-string">&quot;blackjack_tie&quot;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;Dealer and player both have a blackjack. Bet pushed back.&quot;</span>,
+               <span class="ruby-string">&quot;player_blackjack&quot;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;Player has a blackjack, dealer does not. Player wins.&quot;</span>,
+               <span class="ruby-string">&quot;dealer_blackjack&quot;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;Dealer has a blackjack, player does not. Dealer wins&quot;</span>,
+               <span class="ruby-string">&quot;player_wins&quot;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;Player wins.&quot;</span>,
+               <span class="ruby-string">&quot;dealer_wins&quot;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;Dealer wins.&quot;</span>,
+               <span class="ruby-string">&quot;tie&quot;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;Tie! Bet pushed back.&quot;</span>,
+               <span class="ruby-string">&quot;player_busted&quot;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;Player busted. Player loses the bet.&quot;</span>,
+               <span class="ruby-string">&quot;dealer_busted&quot;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;Dealer busted.&quot;</span>,
+               <span class="ruby-string">&quot;round_complete&quot;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;ROUND COMPLETE.&quot;</span>,
+               <span class="ruby-string">&quot;round_begin&quot;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;NEW ROUND BEGINS.&quot;</span>,
+               <span class="ruby-string">&quot;invalid_command&quot;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;Please enter a valid command.&quot;</span>,
+               <span class="ruby-string">&quot;can_double_down&quot;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;Enter d to double down.&quot;</span>,
+               <span class="ruby-string">&quot;can_split&quot;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;Enter x to split.&quot;</span>
+               }
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- new-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- new-method -->
+
+    
+    </section><!-- public-class-method-details -->
+  
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section section">
+      <h3 class="section-header">Public Instance Methods</h3>
+
+    
+      <div id="method-i-get_command" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">get_command</span><span
+            class="method-args">(can_double_down, can_split)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Get the action commands from the input. The parameters describe if
+double-down and splitting are valid.</p>
+          
+
+          
+          <div class="method-source-code" id="get_command-source">
+            <pre><span class="ruby-comment"># File GameIO.rb, line 103</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">get_command</span>(<span class="ruby-identifier">can_double_down</span>, <span class="ruby-identifier">can_split</span>)
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">print_msg</span>(<span class="ruby-string">'hit_or_stay'</span>)
+  
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">can_double_down</span>
+    <span class="ruby-keyword">self</span>.<span class="ruby-identifier">print_msg</span>(<span class="ruby-string">'can_double_down'</span>)
+  <span class="ruby-keyword">end</span>
+  
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">can_split</span>
+    <span class="ruby-keyword">self</span>.<span class="ruby-identifier">print_msg</span>(<span class="ruby-string">'can_split'</span>)
+  <span class="ruby-keyword">end</span>
+  
+  <span class="ruby-identifier">valid_input</span> = <span class="ruby-keyword">false</span>
+  
+  <span class="ruby-keyword">until</span> <span class="ruby-identifier">valid_input</span> <span class="ruby-keyword">do</span>
+    <span class="ruby-identifier">input</span> = <span class="ruby-identifier">gets</span>.<span class="ruby-identifier">chomp</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">input</span> <span class="ruby-operator">==</span> <span class="ruby-string">&quot;h&quot;</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">input</span> <span class="ruby-operator">==</span><span class="ruby-string">&quot;s&quot;</span> <span class="ruby-operator">||</span> (<span class="ruby-identifier">input</span> <span class="ruby-operator">==</span> <span class="ruby-string">&quot;d&quot;</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">can_double_down</span>) <span class="ruby-operator">||</span> (<span class="ruby-identifier">input</span> <span class="ruby-operator">==</span> <span class="ruby-string">&quot;x&quot;</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">can_split</span>)
+      <span class="ruby-identifier">valid_input</span> = <span class="ruby-keyword">true</span>
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-keyword">self</span>.<span class="ruby-identifier">print_msg</span>(<span class="ruby-string">'invalid_command'</span>)
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-identifier">input</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- get_command-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- get_command-method -->
+
+    
+      <div id="method-i-input_bet_value" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">input_bet_value</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Get the bet value from the input</p>
+          
+
+          
+          <div class="method-source-code" id="input_bet_value-source">
+            <pre><span class="ruby-comment"># File GameIO.rb, line 77</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">input_bet_value</span>
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">print_msg</span>(<span class="ruby-string">&quot;make_bet&quot;</span>)
+  <span class="ruby-identifier">bet_value</span> = <span class="ruby-identifier">gets</span>.<span class="ruby-identifier">chomp</span>.<span class="ruby-identifier">to_i</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-identifier">bet_value</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- input_bet_value-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- input_bet_value-method -->
+
+    
+      <div id="method-i-input_player_count" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">input_player_count</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Get the player count from the input</p>
+          
+
+          
+          <div class="method-source-code" id="input_player_count-source">
+            <pre><span class="ruby-comment"># File GameIO.rb, line 43</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">input_player_count</span>
+  <span class="ruby-identifier">valid_input</span> = <span class="ruby-keyword">false</span>
+  <span class="ruby-keyword">until</span> <span class="ruby-identifier">valid_input</span> <span class="ruby-keyword">do</span>
+    <span class="ruby-keyword">self</span>.<span class="ruby-identifier">print_msg</span>(<span class="ruby-string">&quot;input_player_count&quot;</span>)
+    <span class="ruby-identifier">player_count</span> = <span class="ruby-identifier">gets</span>.<span class="ruby-identifier">chomp</span>.<span class="ruby-identifier">to_i</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">player_count</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">0</span>
+      <span class="ruby-identifier">valid_input</span> = <span class="ruby-keyword">true</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-identifier">player_count</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- input_player_count-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- input_player_count-method -->
+
+    
+      <div id="method-i-input_shoe_size" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">input_shoe_size</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Get the number of decks from the input, currently not in use</p>
+          
+
+          
+          <div class="method-source-code" id="input_shoe_size-source">
+            <pre><span class="ruby-comment"># File GameIO.rb, line 56</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">input_shoe_size</span>
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">print_msg</span>(<span class="ruby-string">&quot;input_shoe_size&quot;</span>)
+  <span class="ruby-identifier">shoe_size</span> = <span class="ruby-identifier">gets</span>.<span class="ruby-identifier">chomp</span>.<span class="ruby-identifier">to_i</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-identifier">shoe_size</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- input_shoe_size-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- input_shoe_size-method -->
+
+    
+      <div id="method-i-print_all_hands" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">print_all_hands</span><span
+            class="method-args">(players)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Print hands of all the players</p>
+          
+
+          
+          <div class="method-source-code" id="print_all_hands-source">
+            <pre><span class="ruby-comment"># File GameIO.rb, line 96</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">print_all_hands</span>(<span class="ruby-identifier">players</span>)
+  <span class="ruby-identifier">players</span>.<span class="ruby-identifier">each</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">player</span><span class="ruby-operator">|</span>
+      <span class="ruby-keyword">self</span>.<span class="ruby-identifier">print_hand</span>(<span class="ruby-identifier">player</span>)
+    }
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- print_all_hands-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- print_all_hands-method -->
+
+    
+      <div id="method-i-print_all_players" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">print_all_players</span><span
+            class="method-args">(players)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Print details of all players</p>
+          
+
+          
+          <div class="method-source-code" id="print_all_players-source">
+            <pre><span class="ruby-comment"># File GameIO.rb, line 84</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">print_all_players</span>(<span class="ruby-identifier">players</span>)
+  <span class="ruby-identifier">players</span>.<span class="ruby-identifier">each</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">player</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">print_player</span>(<span class="ruby-identifier">player</span>)
+  }
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- print_all_players-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- print_all_players-method -->
+
+    
+      <div id="method-i-print_blackjack_msg" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">print_blackjack_msg</span><span
+            class="method-args">(player)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Print when player has a blackjack</p>
+          
+
+          
+          <div class="method-source-code" id="print_blackjack_msg-source">
+            <pre><span class="ruby-comment"># File GameIO.rb, line 205</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">print_blackjack_msg</span>(<span class="ruby-identifier">player</span>)
+  <span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;Player: #{player.id}. Blackjack!&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- print_blackjack_msg-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- print_blackjack_msg-method -->
+
+    
+      <div id="method-i-print_busted_msg" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">print_busted_msg</span><span
+            class="method-args">(player)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Print when player busts</p>
+          
+
+          
+          <div class="method-source-code" id="print_busted_msg-source">
+            <pre><span class="ruby-comment"># File GameIO.rb, line 128</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">print_busted_msg</span>(<span class="ruby-identifier">player</span>)
+  <span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;Player #{player.id}: Bust!&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- print_busted_msg-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- print_busted_msg-method -->
+
+    
+      <div id="method-i-print_deal_cards" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">print_deal_cards</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Print when dealing cards</p>
+          
+
+          
+          <div class="method-source-code" id="print_deal_cards-source">
+            <pre><span class="ruby-comment"># File GameIO.rb, line 224</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">print_deal_cards</span>
+  <span class="ruby-identifier">puts</span> <span class="ruby-string">&quot;-----------&quot;</span>
+  <span class="ruby-identifier">puts</span> <span class="ruby-string">&quot;Cards Dealt&quot;</span>
+  <span class="ruby-identifier">puts</span> <span class="ruby-string">&quot;-----------&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- print_deal_cards-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- print_deal_cards-method -->
+
+    
+      <div id="method-i-print_dealers_hand" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">print_dealers_hand</span><span
+            class="method-args">(dealer)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Print the dealer’s hand</p>
+          
+
+          
+          <div class="method-source-code" id="print_dealers_hand-source">
+            <pre><span class="ruby-comment"># File GameIO.rb, line 253</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">print_dealers_hand</span>(<span class="ruby-identifier">dealer</span>)
+  <span class="ruby-identifier">dealer_hand</span> = <span class="ruby-identifier">dealer</span>.<span class="ruby-identifier">get_hand</span>
+  <span class="ruby-identifier">cards</span> = <span class="ruby-identifier">dealer_hand</span>.<span class="ruby-identifier">get_hand_cards</span>
+  <span class="ruby-identifier">print</span> <span class="ruby-string">&quot;Dealer. Hand: &quot;</span>
+  <span class="ruby-identifier">cards</span>.<span class="ruby-identifier">each</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">card</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">print</span> <span class="ruby-node">&quot;#{card.symbol}#{card.suit} &quot;</span>
+  }
+  <span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;Points: #{dealer.get_points}.&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- print_dealers_hand-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- print_dealers_hand-method -->
+
+    
+      <div id="method-i-print_end" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">print_end</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Print at end of game</p>
+          
+
+          
+          <div class="method-source-code" id="print_end-source">
+            <pre><span class="ruby-comment"># File GameIO.rb, line 143</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">print_end</span>
+  <span class="ruby-identifier">print_separator_strong</span>
+  <span class="ruby-identifier">puts</span> <span class="ruby-string">&quot;GAME OVER!&quot;</span>
+  <span class="ruby-identifier">print_separator_strong</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- print_end-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- print_end-method -->
+
+    
+      <div id="method-i-print_end_round" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">print_end_round</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Print at end of round</p>
+          
+
+          
+          <div class="method-source-code" id="print_end_round-source">
+            <pre><span class="ruby-comment"># File GameIO.rb, line 70</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">print_end_round</span>
+  <span class="ruby-identifier">print_separator_strong</span>
+  <span class="ruby-identifier">print_msg</span>(<span class="ruby-string">'round_complete'</span>)
+  <span class="ruby-identifier">print_separator_strong</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- print_end_round-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- print_end_round-method -->
+
+    
+      <div id="method-i-print_hand" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">print_hand</span><span
+            class="method-args">(player)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Print the hand of the player</p>
+          
+
+          
+          <div class="method-source-code" id="print_hand-source">
+            <pre><span class="ruby-comment"># File GameIO.rb, line 231</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">print_hand</span>(<span class="ruby-identifier">player</span>)
+  <span class="ruby-identifier">player_hand</span> = <span class="ruby-identifier">player</span>.<span class="ruby-identifier">get_hand</span>
+  <span class="ruby-identifier">cards</span> = <span class="ruby-identifier">player_hand</span>.<span class="ruby-identifier">get_hand_cards</span>
+  <span class="ruby-identifier">print</span> <span class="ruby-node">&quot;Player: #{player.id}. Hand: &quot;</span>
+  <span class="ruby-identifier">cards</span>.<span class="ruby-identifier">each</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">card</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">print</span> <span class="ruby-node">&quot;#{card.symbol}#{card.suit} &quot;</span>
+  }
+  <span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;Points: #{player.get_points}. Bet: #{player.get_current_bet} &quot;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- print_hand-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- print_hand-method -->
+
+    
+      <div id="method-i-print_instructions" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">print_instructions</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Print game instructions</p>
+          
+
+          
+          <div class="method-source-code" id="print_instructions-source">
+            <pre><span class="ruby-comment"># File GameIO.rb, line 38</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">print_instructions</span>
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">print_msg</span>(<span class="ruby-string">&quot;instructions&quot;</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- print_instructions-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- print_instructions-method -->
+
+    
+      <div id="method-i-print_msg" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">print_msg</span><span
+            class="method-args">(message_id)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Prints the message based on id given</p>
+          
+
+          
+          <div class="method-source-code" id="print_msg-source">
+            <pre><span class="ruby-comment"># File GameIO.rb, line 33</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">print_msg</span>(<span class="ruby-identifier">message_id</span>)
+  <span class="ruby-identifier">puts</span> <span class="ruby-ivar">@messages</span>[<span class="ruby-identifier">message_id</span>]
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- print_msg-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- print_msg-method -->
+
+    
+      <div id="method-i-print_player" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">print_player</span><span
+            class="method-args">(player)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Print details of a player</p>
+          
+
+          
+          <div class="method-source-code" id="print_player-source">
+            <pre><span class="ruby-comment"># File GameIO.rb, line 91</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">print_player</span>(<span class="ruby-identifier">player</span>)
+  <span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;Player #{player.id}: Balance: #{player.money}. &quot;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- print_player-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- print_player-method -->
+
+    
+      <div id="method-i-print_player_bankrupt" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">print_player_bankrupt</span><span
+            class="method-args">(player)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Print when a player becomes bankrupt</p>
+          
+
+          
+          <div class="method-source-code" id="print_player_bankrupt-source">
+            <pre><span class="ruby-comment"># File GameIO.rb, line 150</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">print_player_bankrupt</span>(<span class="ruby-identifier">player</span>)
+  <span class="ruby-identifier">print_separator</span>
+  <span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;Player #{player.id}: Bankrupt&quot;</span>
+  <span class="ruby-identifier">print_separator</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- print_player_bankrupt-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- print_player_bankrupt-method -->
+
+    
+      <div id="method-i-print_separator" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">print_separator</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Horizontal separator</p>
+          
+
+          
+          <div class="method-source-code" id="print_separator-source">
+            <pre><span class="ruby-comment"># File GameIO.rb, line 133</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">print_separator</span>
+  <span class="ruby-identifier">puts</span> <span class="ruby-string">&quot;------------------------------------------------------&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- print_separator-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- print_separator-method -->
+
+    
+      <div id="method-i-print_separator_strong" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">print_separator_strong</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Horizontal separator, strong</p>
+          
+
+          
+          <div class="method-source-code" id="print_separator_strong-source">
+            <pre><span class="ruby-comment"># File GameIO.rb, line 138</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">print_separator_strong</span>
+  <span class="ruby-identifier">puts</span> <span class="ruby-string">&quot;======================================================&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- print_separator_strong-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- print_separator_strong-method -->
+
+    
+      <div id="method-i-print_split_hand" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">print_split_hand</span><span
+            class="method-args">(player)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Print the second had of the player</p>
+          
+
+          
+          <div class="method-source-code" id="print_split_hand-source">
+            <pre><span class="ruby-comment"># File GameIO.rb, line 242</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">print_split_hand</span>(<span class="ruby-identifier">player</span>)
+  <span class="ruby-identifier">player_hand</span> = <span class="ruby-identifier">player</span>.<span class="ruby-identifier">get_split_hand</span>
+  <span class="ruby-identifier">cards</span> = <span class="ruby-identifier">player_hand</span>.<span class="ruby-identifier">get_hand_cards</span>
+  <span class="ruby-identifier">print</span> <span class="ruby-node">&quot;Player: #{player.id}. Hand: &quot;</span>
+  <span class="ruby-identifier">cards</span>.<span class="ruby-identifier">each</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">card</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">print</span> <span class="ruby-node">&quot;#{card.symbol}#{card.suit} &quot;</span>
+  }
+  <span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;Points: #{player.get_split_points}. Bet: #{player.get_split_bet} &quot;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- print_split_hand-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- print_split_hand-method -->
+
+    
+      <div id="method-i-print_split_separator_1" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">print_split_separator_1</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>For player’s first hand when a split is called</p>
+          
+
+          
+          <div class="method-source-code" id="print_split_separator_1-source">
+            <pre><span class="ruby-comment"># File GameIO.rb, line 210</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">print_split_separator_1</span>
+  <span class="ruby-identifier">puts</span> <span class="ruby-string">&quot;--------------------&quot;</span>
+  <span class="ruby-identifier">puts</span> <span class="ruby-string">&quot;Player's first hand&quot;</span>
+  <span class="ruby-identifier">puts</span> <span class="ruby-string">&quot;--------------------&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- print_split_separator_1-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- print_split_separator_1-method -->
+
+    
+      <div id="method-i-print_split_separator_2" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">print_split_separator_2</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>For player’s second hand when a split is called</p>
+          
+
+          
+          <div class="method-source-code" id="print_split_separator_2-source">
+            <pre><span class="ruby-comment"># File GameIO.rb, line 217</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">print_split_separator_2</span>
+  <span class="ruby-identifier">puts</span> <span class="ruby-string">&quot;--------------------&quot;</span>
+  <span class="ruby-identifier">puts</span> <span class="ruby-string">&quot;Player's second hand&quot;</span>
+  <span class="ruby-identifier">puts</span> <span class="ruby-string">&quot;--------------------&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- print_split_separator_2-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- print_split_separator_2-method -->
+
+    
+      <div id="method-i-print_split_vs_msg" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">print_split_vs_msg</span><span
+            class="method-args">(player, dealer)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Print a message comparing the second hand of the player and the dealer</p>
+          
+
+          
+          <div class="method-source-code" id="print_split_vs_msg-source">
+            <pre><span class="ruby-comment"># File GameIO.rb, line 182</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">print_split_vs_msg</span>(<span class="ruby-identifier">player</span>, <span class="ruby-identifier">dealer</span>)
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">print_split_separator_2</span>
+  <span class="ruby-identifier">print</span> <span class="ruby-node">&quot;Player #{player.id}: &quot;</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">player</span>.<span class="ruby-identifier">is_split_blackjack</span>
+    <span class="ruby-identifier">print</span> <span class="ruby-string">&quot;Blackjack! &quot;</span>
+  <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">player</span>.<span class="ruby-identifier">is_split_busted</span>
+    <span class="ruby-identifier">print</span> <span class="ruby-string">&quot;Bust! &quot;</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">print</span> <span class="ruby-node">&quot;#{player.get_split_points} &quot;</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">print</span> <span class="ruby-string">&quot;vs &quot;</span>
+  <span class="ruby-identifier">print</span> <span class="ruby-string">&quot;Dealer: &quot;</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">dealer</span>.<span class="ruby-identifier">is_blackjack</span>
+    <span class="ruby-identifier">print</span> <span class="ruby-string">&quot;Blackjack! &quot;</span>
+  <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">dealer</span>.<span class="ruby-identifier">is_busted</span>
+    <span class="ruby-identifier">print</span> <span class="ruby-string">&quot;Bust! &quot;</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">print</span> <span class="ruby-node">&quot;#{dealer.get_points} &quot;</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">puts</span> <span class="ruby-string">&quot;&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- print_split_vs_msg-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- print_split_vs_msg-method -->
+
+    
+      <div id="method-i-print_start_round" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">print_start_round</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Print at start of round</p>
+          
+
+          
+          <div class="method-source-code" id="print_start_round-source">
+            <pre><span class="ruby-comment"># File GameIO.rb, line 63</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">print_start_round</span>
+  <span class="ruby-identifier">print_separator</span>
+  <span class="ruby-identifier">print_msg</span>(<span class="ruby-string">'round_begin'</span>)
+  <span class="ruby-identifier">print_separator</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- print_start_round-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- print_start_round-method -->
+
+    
+      <div id="method-i-print_vs_msg" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">print_vs_msg</span><span
+            class="method-args">(player, dealer)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Print a message comparing hands of the player and the dealer</p>
+          
+
+          
+          <div class="method-source-code" id="print_vs_msg-source">
+            <pre><span class="ruby-comment"># File GameIO.rb, line 157</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">print_vs_msg</span>(<span class="ruby-identifier">player</span>, <span class="ruby-identifier">dealer</span>)
+  <span class="ruby-identifier">print</span> <span class="ruby-node">&quot;Player #{player.id}: &quot;</span>
+  
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">player</span>.<span class="ruby-identifier">is_blackjack</span>
+    <span class="ruby-identifier">print</span> <span class="ruby-string">&quot;Blackjack! &quot;</span>
+  <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">player</span>.<span class="ruby-identifier">is_busted</span>
+    <span class="ruby-identifier">print</span> <span class="ruby-string">&quot;Bust! &quot;</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">print</span> <span class="ruby-node">&quot;#{player.get_points} &quot;</span>
+  <span class="ruby-keyword">end</span>
+  
+  <span class="ruby-identifier">print</span> <span class="ruby-string">&quot;vs &quot;</span>
+  <span class="ruby-identifier">print</span> <span class="ruby-string">&quot;Dealer: &quot;</span>
+  
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">dealer</span>.<span class="ruby-identifier">is_blackjack</span>
+    <span class="ruby-identifier">print</span> <span class="ruby-string">&quot;Blackjack! &quot;</span>
+  <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">dealer</span>.<span class="ruby-identifier">is_busted</span>
+    <span class="ruby-identifier">print</span> <span class="ruby-string">&quot;Bust! &quot;</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">print</span> <span class="ruby-node">&quot;#{dealer.get_points} &quot;</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">puts</span> <span class="ruby-string">&quot;&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- print_vs_msg-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- print_vs_msg-method -->
+
+    
+    </section><!-- public-instance-method-details -->
+  
+  </section><!-- 5Buntitled-5D -->
+
+</div><!-- documentation -->
+
+
+<footer id="validator-badges">
+  <p><a href="http://validator.w3.org/check/referer">[Validate]</a>
+  <p>Generated by <a href="https://github.com/rdoc/rdoc">RDoc</a> 3.12.2.
+  <p>Generated with the <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish Rdoc Generator</a> 3.
+</footer>
+

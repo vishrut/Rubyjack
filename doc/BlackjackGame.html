@@ -1,0 +1,1103 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+
+<title>class BlackjackGame - RDoc Documentation</title>
+
+<link type="text/css" media="screen" href="./rdoc.css" rel="stylesheet">
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "./";
+</script>
+
+<script type="text/javascript" charset="utf-8" src="./js/jquery.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/navigation.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/search_index.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/search.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/searcher.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/darkfish.js"></script>
+
+
+<body id="top" class="class">
+<nav id="metadata">
+  <nav id="home-section" class="section">
+  <h3 class="section-header">
+    <a href="./index.html">Home</a>
+    <a href="./table_of_contents.html#classes">Classes</a>
+    <a href="./table_of_contents.html#methods">Methods</a>
+  </h3>
+</nav>
+
+
+  <nav id="search-section" class="section project-section" class="initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <h3 class="section-header">
+      <input type="text" name="search" placeholder="Search" id="search-field"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </h3>
+  </form>
+
+  <ul id="search-results" class="initially-hidden"></ul>
+</nav>
+
+
+  <div id="file-metadata">
+    <nav id="file-list-section" class="section">
+  <h3 class="section-header">Defined In</h3>
+  <ul>
+    <li>BlackjackGame.rb
+  </ul>
+</nav>
+
+    
+  </div>
+
+  <div id="class-metadata">
+    
+    <nav id="parent-class-section" class="section">
+  <h3 class="section-header">Parent</h3>
+  
+  <p class="link">Object
+  
+</nav>
+
+    
+    <!-- Method Quickref -->
+<nav id="method-list-section" class="section">
+  <h3 class="section-header">Methods</h3>
+
+  <ul class="link-list">
+    
+    <li><a href="#method-c-new">::new</a>
+    
+    <li><a href="#method-i-all_play">#all_play</a>
+    
+    <li><a href="#method-i-are_active_players">#are_active_players</a>
+    
+    <li><a href="#method-i-clear_hands">#clear_hands</a>
+    
+    <li><a href="#method-i-compare_hands">#compare_hands</a>
+    
+    <li><a href="#method-i-compare_split_hand">#compare_split_hand</a>
+    
+    <li><a href="#method-i-deal_cards">#deal_cards</a>
+    
+    <li><a href="#method-i-dealers_play">#dealers_play</a>
+    
+    <li><a href="#method-i-evaluate_all_hands">#evaluate_all_hands</a>
+    
+    <li><a href="#method-i-hit">#hit</a>
+    
+    <li><a href="#method-i-hit_split_hand">#hit_split_hand</a>
+    
+    <li><a href="#method-i-pay_player">#pay_player</a>
+    
+    <li><a href="#method-i-play">#play</a>
+    
+    <li><a href="#method-i-play_split">#play_split</a>
+    
+    <li><a href="#method-i-players_place_bets">#players_place_bets</a>
+    
+    <li><a href="#method-i-remove_bankrupt_players">#remove_bankrupt_players</a>
+    
+    <li><a href="#method-i-setup_game">#setup_game</a>
+    
+    <li><a href="#method-i-split">#split</a>
+    
+    <li><a href="#method-i-start_round">#start_round</a>
+    
+  </ul>
+</nav>
+
+  </div>
+
+  <div id="project-metadata">
+    
+    <nav id="classindex-section" class="section project-section">
+  <h3 class="section-header">Class and Module Index</h3>
+
+  <ul class="link-list">
+  
+    <li><a href="./BlackjackGame.html">BlackjackGame</a>
+  
+    <li><a href="./Card.html">Card</a>
+  
+    <li><a href="./Dealer.html">Dealer</a>
+  
+    <li><a href="./DealerHand.html">DealerHand</a>
+  
+    <li><a href="./Deck.html">Deck</a>
+  
+    <li><a href="./GameIO.html">GameIO</a>
+  
+    <li><a href="./Hand.html">Hand</a>
+  
+    <li><a href="./Player.html">Player</a>
+  
+    <li><a href="./PlayerHand.html">PlayerHand</a>
+  
+    <li><a href="./Shoe.html">Shoe</a>
+  
+  </ul>
+</nav>
+
+  </div>
+</nav>
+
+<div id="documentation">
+  <h1 class="class">class BlackjackGame</h1>
+
+  <div id="description" class="description">
+    
+<p>The <a href="BlackjackGame.html">BlackjackGame</a> class is responsible for
+the high level game logic.</p>
+
+  </div><!-- description -->
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+    <!-- Attributes -->
+    <section id="attribute-method-details" class="method-section section">
+      <h3 class="section-header">Attributes</h3>
+
+      
+      <div id="attribute-i-dealer" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">dealer</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-game_io" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">game_io</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-player_count" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">player_count</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-players" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">players</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-shoe" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">shoe</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+    </section><!-- attribute-method-details -->
+    
+
+    <!-- Methods -->
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section section">
+      <h3 class="section-header">Public Class Methods</h3>
+
+    
+      <div id="method-c-new" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">new</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Initialize a new BlackJack game</p>
+          
+
+          
+          <div class="method-source-code" id="new-source">
+            <pre><span class="ruby-comment"># File BlackjackGame.rb, line 12</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">initialize</span>
+  <span class="ruby-comment"># All IO operations are performed via this object</span>
+  <span class="ruby-ivar">@game_io</span> = <span class="ruby-constant">GameIO</span>.<span class="ruby-identifier">new</span>
+  <span class="ruby-comment"># All the player objects are stored in an Array  </span>
+  <span class="ruby-ivar">@players</span> = <span class="ruby-constant">Array</span>.<span class="ruby-identifier">new</span>
+  <span class="ruby-comment"># Initialize players, dealers, shoe</span>
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">setup_game</span>
+  <span class="ruby-comment"># Start with the first round</span>
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">start_round</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- new-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- new-method -->
+
+    
+    </section><!-- public-class-method-details -->
+  
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section section">
+      <h3 class="section-header">Public Instance Methods</h3>
+
+    
+      <div id="method-i-all_play" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">all_play</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Iterates through all the players, executing their plays</p>
+          
+
+          
+          <div class="method-source-code" id="all_play-source">
+            <pre><span class="ruby-comment"># File BlackjackGame.rb, line 81</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">all_play</span>
+  <span class="ruby-ivar">@players</span>.<span class="ruby-identifier">each</span>{ <span class="ruby-operator">|</span><span class="ruby-identifier">player</span><span class="ruby-operator">|</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-operator">!</span><span class="ruby-identifier">player</span>.<span class="ruby-identifier">is_bankrupt</span>
+      <span class="ruby-ivar">@game_io</span>.<span class="ruby-identifier">print_separator</span>
+      <span class="ruby-keyword">self</span>.<span class="ruby-identifier">play</span>(<span class="ruby-identifier">player</span>)
+    <span class="ruby-keyword">end</span>
+  }
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- all_play-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- all_play-method -->
+
+    
+      <div id="method-i-are_active_players" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">are_active_players</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Returns true if there is even a single player who is not bankrupt, false
+otherwise</p>
+          
+
+          
+          <div class="method-source-code" id="are_active_players-source">
+            <pre><span class="ruby-comment"># File BlackjackGame.rb, line 106</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">are_active_players</span>
+  <span class="ruby-identifier">count</span> = <span class="ruby-value">0</span>
+  <span class="ruby-ivar">@players</span>.<span class="ruby-identifier">each</span>{ <span class="ruby-operator">|</span><span class="ruby-identifier">player</span><span class="ruby-operator">|</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-operator">!</span><span class="ruby-identifier">player</span>.<span class="ruby-identifier">is_bankrupt</span>
+      <span class="ruby-identifier">count</span> = <span class="ruby-identifier">count</span> <span class="ruby-operator">+</span> <span class="ruby-value">1</span>
+    <span class="ruby-keyword">end</span>
+  }
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">count</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">0</span>
+    <span class="ruby-keyword">return</span> <span class="ruby-keyword">true</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-keyword">return</span> <span class="ruby-keyword">false</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- are_active_players-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- are_active_players-method -->
+
+    
+      <div id="method-i-clear_hands" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">clear_hands</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Clear the hands of all players and th dealer</p>
+          
+
+          
+          <div class="method-source-code" id="clear_hands-source">
+            <pre><span class="ruby-comment"># File BlackjackGame.rb, line 121</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">clear_hands</span>
+  <span class="ruby-ivar">@players</span>.<span class="ruby-identifier">each</span>{ <span class="ruby-operator">|</span><span class="ruby-identifier">player</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">player</span>.<span class="ruby-identifier">clear_hand</span>
+  }
+  <span class="ruby-ivar">@dealer</span>.<span class="ruby-identifier">clear_hand</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- clear_hands-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- clear_hands-method -->
+
+    
+      <div id="method-i-compare_hands" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">compare_hands</span><span
+            class="method-args">(player)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Compares the hand of the player with that of the dealer</p>
+          
+
+          
+          <div class="method-source-code" id="compare_hands-source">
+            <pre><span class="ruby-comment"># File BlackjackGame.rb, line 186</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">compare_hands</span>(<span class="ruby-identifier">player</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">player</span>.<span class="ruby-identifier">is_split</span>
+    <span class="ruby-ivar">@game_io</span>.<span class="ruby-identifier">print_split_separator_1</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-ivar">@game_io</span>.<span class="ruby-identifier">print_vs_msg</span>(<span class="ruby-identifier">player</span>, <span class="ruby-identifier">dealer</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">player</span>.<span class="ruby-identifier">is_busted</span>
+    <span class="ruby-ivar">@game_io</span>.<span class="ruby-identifier">print_msg</span>(<span class="ruby-string">'player_busted'</span>)
+  <span class="ruby-keyword">elsif</span> <span class="ruby-ivar">@dealer</span>.<span class="ruby-identifier">is_busted</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-operator">!</span><span class="ruby-identifier">player</span>.<span class="ruby-identifier">is_blackjack</span>
+    <span class="ruby-identifier">pay_player</span>(<span class="ruby-identifier">player</span>, <span class="ruby-value">2</span> * <span class="ruby-identifier">player</span>.<span class="ruby-identifier">current_bet</span>)
+    <span class="ruby-ivar">@game_io</span>.<span class="ruby-identifier">print_msg</span>(<span class="ruby-string">'dealer_busted'</span>)
+  <span class="ruby-keyword">elsif</span> <span class="ruby-ivar">@dealer</span>.<span class="ruby-identifier">is_busted</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">player</span>.<span class="ruby-identifier">is_blackjack</span>
+    <span class="ruby-identifier">pay_player</span>(<span class="ruby-identifier">player</span>, <span class="ruby-value">2.5</span> * <span class="ruby-identifier">player</span>.<span class="ruby-identifier">current_bet</span>)
+    <span class="ruby-ivar">@game_io</span>.<span class="ruby-identifier">print_msg</span>(<span class="ruby-string">'player_blackjack'</span>)
+  <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">player</span>.<span class="ruby-identifier">is_blackjack</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-ivar">@dealer</span>.<span class="ruby-identifier">is_blackjack</span>
+    <span class="ruby-identifier">pay_player</span>(<span class="ruby-identifier">player</span>, <span class="ruby-identifier">player</span>.<span class="ruby-identifier">current_bet</span>) <span class="ruby-comment">#return bet</span>
+    <span class="ruby-ivar">@game_io</span>.<span class="ruby-identifier">print_msg</span>(<span class="ruby-string">'blackjack_tie'</span>)
+  <span class="ruby-keyword">elsif</span> <span class="ruby-operator">!</span>(<span class="ruby-identifier">player</span>.<span class="ruby-identifier">is_blackjack</span>) <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-ivar">@dealer</span>.<span class="ruby-identifier">is_blackjack</span>
+    <span class="ruby-ivar">@game_io</span>.<span class="ruby-identifier">print_msg</span>(<span class="ruby-string">'dealer_blackjack'</span>)
+  <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">player</span>.<span class="ruby-identifier">is_blackjack</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-operator">!</span>(<span class="ruby-ivar">@dealer</span>.<span class="ruby-identifier">is_blackjack</span>)
+    <span class="ruby-identifier">pay_player</span>(<span class="ruby-identifier">player</span>, <span class="ruby-value">2.5</span> * <span class="ruby-identifier">player</span>.<span class="ruby-identifier">current_bet</span>)
+    <span class="ruby-ivar">@game_io</span>.<span class="ruby-identifier">print_msg</span>(<span class="ruby-string">'player_blackjack'</span>)
+  <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">player</span>.<span class="ruby-identifier">get_points</span> <span class="ruby-operator">&gt;</span> <span class="ruby-ivar">@dealer</span>.<span class="ruby-identifier">get_points</span>
+    <span class="ruby-identifier">pay_player</span>(<span class="ruby-identifier">player</span>, <span class="ruby-value">2</span> * <span class="ruby-identifier">player</span>.<span class="ruby-identifier">current_bet</span>)
+    <span class="ruby-ivar">@game_io</span>.<span class="ruby-identifier">print_msg</span>(<span class="ruby-string">'player_wins'</span>)
+  <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">player</span>.<span class="ruby-identifier">get_points</span> <span class="ruby-operator">==</span> <span class="ruby-ivar">@dealer</span>.<span class="ruby-identifier">get_points</span>
+    <span class="ruby-identifier">pay_player</span>(<span class="ruby-identifier">player</span>, <span class="ruby-identifier">player</span>.<span class="ruby-identifier">current_bet</span>)
+    <span class="ruby-ivar">@game_io</span>.<span class="ruby-identifier">print_msg</span>(<span class="ruby-string">'tie'</span>)
+  <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">player</span>.<span class="ruby-identifier">get_points</span> <span class="ruby-operator">&lt;</span> <span class="ruby-ivar">@dealer</span>.<span class="ruby-identifier">get_points</span>
+    <span class="ruby-ivar">@game_io</span>.<span class="ruby-identifier">print_msg</span>(<span class="ruby-string">'dealer_wins'</span>)
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">player</span>.<span class="ruby-identifier">current_bet</span> = <span class="ruby-value">0</span>
+  <span class="ruby-ivar">@game_io</span>.<span class="ruby-identifier">print_player</span>(<span class="ruby-identifier">player</span>)
+  
+  <span class="ruby-comment"># If the player had a split, also compare the other hand</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">player</span>.<span class="ruby-identifier">is_split</span>
+    <span class="ruby-identifier">compare_split_hand</span>(<span class="ruby-identifier">player</span>)
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-ivar">@game_io</span>.<span class="ruby-identifier">print_separator</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- compare_hands-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- compare_hands-method -->
+
+    
+      <div id="method-i-compare_split_hand" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">compare_split_hand</span><span
+            class="method-args">(player)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Compare player’s second hand with that of the dealer, in case of a split</p>
+          
+
+          
+          <div class="method-source-code" id="compare_split_hand-source">
+            <pre><span class="ruby-comment"># File BlackjackGame.rb, line 228</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">compare_split_hand</span>(<span class="ruby-identifier">player</span>)
+  <span class="ruby-ivar">@game_io</span>.<span class="ruby-identifier">print_split_vs_msg</span>(<span class="ruby-identifier">player</span>, <span class="ruby-identifier">dealer</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">player</span>.<span class="ruby-identifier">is_split_busted</span>
+    <span class="ruby-ivar">@game_io</span>.<span class="ruby-identifier">print_msg</span>(<span class="ruby-string">'player_busted'</span>)
+  <span class="ruby-keyword">elsif</span> <span class="ruby-ivar">@dealer</span>.<span class="ruby-identifier">is_busted</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-operator">!</span><span class="ruby-identifier">player</span>.<span class="ruby-identifier">is_split_blackjack</span>
+    <span class="ruby-identifier">pay_player</span>(<span class="ruby-identifier">player</span>, <span class="ruby-value">2</span> * <span class="ruby-identifier">player</span>.<span class="ruby-identifier">split_bet</span>)
+    <span class="ruby-ivar">@game_io</span>.<span class="ruby-identifier">print_msg</span>(<span class="ruby-string">'dealer_busted'</span>)
+  <span class="ruby-keyword">elsif</span> <span class="ruby-ivar">@dealer</span>.<span class="ruby-identifier">is_busted</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">player</span>.<span class="ruby-identifier">is_split_blackjack</span>
+    <span class="ruby-identifier">pay_player</span>(<span class="ruby-identifier">player</span>, <span class="ruby-value">2.5</span> * <span class="ruby-identifier">player</span>.<span class="ruby-identifier">split_bet</span>)
+    <span class="ruby-ivar">@game_io</span>.<span class="ruby-identifier">print_msg</span>(<span class="ruby-string">'player_blackjack'</span>)
+  <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">player</span>.<span class="ruby-identifier">is_split_blackjack</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-ivar">@dealer</span>.<span class="ruby-identifier">is_blackjack</span>
+    <span class="ruby-identifier">pay_player</span>(<span class="ruby-identifier">player</span>, <span class="ruby-identifier">player</span>.<span class="ruby-identifier">split_bet</span>) <span class="ruby-comment">#return bet</span>
+    <span class="ruby-ivar">@game_io</span>.<span class="ruby-identifier">print_msg</span>(<span class="ruby-string">'blackjack_tie'</span>)
+  <span class="ruby-keyword">elsif</span> <span class="ruby-operator">!</span>(<span class="ruby-identifier">player</span>.<span class="ruby-identifier">is_split_blackjack</span>) <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-ivar">@dealer</span>.<span class="ruby-identifier">is_blackjack</span>
+    <span class="ruby-ivar">@game_io</span>.<span class="ruby-identifier">print_msg</span>(<span class="ruby-string">'dealer_blackjack'</span>)
+  <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">player</span>.<span class="ruby-identifier">is_split_blackjack</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-operator">!</span>(<span class="ruby-ivar">@dealer</span>.<span class="ruby-identifier">is_blackjack</span>)
+    <span class="ruby-identifier">pay_player</span>(<span class="ruby-identifier">player</span>, <span class="ruby-value">2.5</span> * <span class="ruby-identifier">player</span>.<span class="ruby-identifier">split_bet</span>)
+    <span class="ruby-ivar">@game_io</span>.<span class="ruby-identifier">print_msg</span>(<span class="ruby-string">'player_blackjack'</span>)
+  <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">player</span>.<span class="ruby-identifier">get_split_points</span> <span class="ruby-operator">&gt;</span> <span class="ruby-ivar">@dealer</span>.<span class="ruby-identifier">get_points</span>
+    <span class="ruby-identifier">pay_player</span>(<span class="ruby-identifier">player</span>, <span class="ruby-value">2</span> * <span class="ruby-identifier">player</span>.<span class="ruby-identifier">split_bet</span>)
+    <span class="ruby-ivar">@game_io</span>.<span class="ruby-identifier">print_msg</span>(<span class="ruby-string">'player_wins'</span>)
+  <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">player</span>.<span class="ruby-identifier">get_split_points</span> <span class="ruby-operator">==</span> <span class="ruby-ivar">@dealer</span>.<span class="ruby-identifier">get_points</span>
+    <span class="ruby-identifier">pay_player</span>(<span class="ruby-identifier">player</span>, <span class="ruby-identifier">player</span>.<span class="ruby-identifier">split_bet</span>)
+    <span class="ruby-ivar">@game_io</span>.<span class="ruby-identifier">print_msg</span>(<span class="ruby-string">'tie'</span>)
+  <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">player</span>.<span class="ruby-identifier">get_split_points</span> <span class="ruby-operator">&lt;</span> <span class="ruby-ivar">@dealer</span>.<span class="ruby-identifier">get_points</span>
+    <span class="ruby-ivar">@game_io</span>.<span class="ruby-identifier">print_msg</span>(<span class="ruby-string">'dealer_wins'</span>)
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">player</span>.<span class="ruby-identifier">split_bet</span> = <span class="ruby-value">0</span>
+  <span class="ruby-ivar">@game_io</span>.<span class="ruby-identifier">print_player</span>(<span class="ruby-identifier">player</span>)
+  <span class="ruby-ivar">@game_io</span>.<span class="ruby-identifier">print_separator</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- compare_split_hand-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- compare_split_hand-method -->
+
+    
+      <div id="method-i-deal_cards" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">deal_cards</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Deal the cards to all players and the dealer</p>
+          
+
+          
+          <div class="method-source-code" id="deal_cards-source">
+            <pre><span class="ruby-comment"># File BlackjackGame.rb, line 261</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">deal_cards</span>
+  <span class="ruby-ivar">@game_io</span>.<span class="ruby-identifier">print_deal_cards</span>
+  <span class="ruby-keyword">for</span> <span class="ruby-identifier">i</span> <span class="ruby-keyword">in</span> <span class="ruby-value">1</span><span class="ruby-operator">..</span><span class="ruby-value">2</span>
+    <span class="ruby-ivar">@players</span>.<span class="ruby-identifier">each</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">player</span><span class="ruby-operator">|</span>
+      <span class="ruby-identifier">player</span>.<span class="ruby-identifier">add_card_to_hand</span>(<span class="ruby-ivar">@shoe</span>.<span class="ruby-identifier">retrieve_card</span>)
+    }
+    <span class="ruby-ivar">@dealer</span>.<span class="ruby-identifier">add_card_to_hand</span>(<span class="ruby-ivar">@shoe</span>.<span class="ruby-identifier">retrieve_card</span>)
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-ivar">@game_io</span>.<span class="ruby-identifier">print_all_hands</span>(<span class="ruby-ivar">@players</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- deal_cards-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- deal_cards-method -->
+
+    
+      <div id="method-i-dealers_play" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">dealers_play</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p><a href="Dealer.html">Dealer</a> plays once all players have completed
+their plays</p>
+          
+
+          
+          <div class="method-source-code" id="dealers_play-source">
+            <pre><span class="ruby-comment"># File BlackjackGame.rb, line 129</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">dealers_play</span>
+  <span class="ruby-ivar">@game_io</span>.<span class="ruby-identifier">print_dealers_hand</span>(<span class="ruby-identifier">dealer</span>)
+  
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">dealer</span>.<span class="ruby-identifier">is_blackjack</span>
+    <span class="ruby-ivar">@game_io</span>.<span class="ruby-identifier">print_msg</span>(<span class="ruby-string">'dealer_blackjack_1'</span>)
+    <span class="ruby-keyword">return</span>
+  <span class="ruby-keyword">end</span>
+  
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">dealer</span>.<span class="ruby-identifier">get_points</span> <span class="ruby-operator">==</span> <span class="ruby-value">21</span>
+    <span class="ruby-keyword">return</span>
+  <span class="ruby-keyword">end</span>
+  
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">dealer</span>.<span class="ruby-identifier">get_points</span> <span class="ruby-operator">&lt;</span> <span class="ruby-value">17</span>
+    <span class="ruby-identifier">hit</span>(<span class="ruby-identifier">dealer</span>)
+    <span class="ruby-ivar">@game_io</span>.<span class="ruby-identifier">print_dealers_hand</span>(<span class="ruby-identifier">dealer</span>)
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-keyword">return</span>
+  <span class="ruby-keyword">end</span>
+  
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">dealer</span>.<span class="ruby-identifier">is_busted</span>
+    <span class="ruby-ivar">@game_io</span>.<span class="ruby-identifier">print_msg</span>(<span class="ruby-string">'dealer_busted'</span>)
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-keyword">self</span>.<span class="ruby-identifier">dealers_play</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- dealers_play-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- dealers_play-method -->
+
+    
+      <div id="method-i-evaluate_all_hands" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">evaluate_all_hands</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Compare hands of all players with the dealer</p>
+          
+
+          
+          <div class="method-source-code" id="evaluate_all_hands-source">
+            <pre><span class="ruby-comment"># File BlackjackGame.rb, line 174</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">evaluate_all_hands</span>
+  <span class="ruby-ivar">@players</span>.<span class="ruby-identifier">each</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">player</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">compare_hands</span>(<span class="ruby-identifier">player</span>)
+  }
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- evaluate_all_hands-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- evaluate_all_hands-method -->
+
+    
+      <div id="method-i-hit" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">hit</span><span
+            class="method-args">(player)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Executed when player calls a hit</p>
+          
+
+          
+          <div class="method-source-code" id="hit-source">
+            <pre><span class="ruby-comment"># File BlackjackGame.rb, line 273</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">hit</span>(<span class="ruby-identifier">player</span>)
+  <span class="ruby-identifier">card</span> = <span class="ruby-ivar">@shoe</span>.<span class="ruby-identifier">retrieve_card</span>
+  <span class="ruby-identifier">player</span>.<span class="ruby-identifier">add_card_to_hand</span>(<span class="ruby-identifier">card</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- hit-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- hit-method -->
+
+    
+      <div id="method-i-hit_split_hand" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">hit_split_hand</span><span
+            class="method-args">(player)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Executed when th player calls a hit on the second hand of a split</p>
+          
+
+          
+          <div class="method-source-code" id="hit_split_hand-source">
+            <pre><span class="ruby-comment"># File BlackjackGame.rb, line 279</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">hit_split_hand</span>(<span class="ruby-identifier">player</span>)
+  <span class="ruby-identifier">card</span> = <span class="ruby-ivar">@shoe</span>.<span class="ruby-identifier">retrieve_card</span>
+  <span class="ruby-identifier">player</span>.<span class="ruby-identifier">add_card_to_split_hand</span>(<span class="ruby-identifier">card</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- hit_split_hand-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- hit_split_hand-method -->
+
+    
+      <div id="method-i-pay_player" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">pay_player</span><span
+            class="method-args">(player, amount)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Pay the player</p>
+          
+
+          
+          <div class="method-source-code" id="pay_player-source">
+            <pre><span class="ruby-comment"># File BlackjackGame.rb, line 181</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">pay_player</span>(<span class="ruby-identifier">player</span>, <span class="ruby-identifier">amount</span>)
+  <span class="ruby-identifier">player</span>.<span class="ruby-identifier">add_money</span>(<span class="ruby-identifier">amount</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- pay_player-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- pay_player-method -->
+
+    
+      <div id="method-i-play" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">play</span><span
+            class="method-args">(player)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p><a href="Player.html">Player</a> plays the hand according this method</p>
+          
+
+          
+          <div class="method-source-code" id="play-source">
+            <pre><span class="ruby-comment"># File BlackjackGame.rb, line 333</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">play</span>(<span class="ruby-identifier">player</span>)
+  <span class="ruby-ivar">@game_io</span>.<span class="ruby-identifier">print_hand</span>(<span class="ruby-identifier">player</span>)
+  
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">player</span>.<span class="ruby-identifier">is_blackjack</span>
+    <span class="ruby-ivar">@game_io</span>.<span class="ruby-identifier">print_blackjack_msg</span>(<span class="ruby-identifier">player</span>)
+    <span class="ruby-keyword">return</span>
+  <span class="ruby-keyword">end</span>
+  
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">player</span>.<span class="ruby-identifier">get_points</span> <span class="ruby-operator">==</span> <span class="ruby-value">21</span>
+    <span class="ruby-keyword">return</span>
+  <span class="ruby-keyword">end</span>
+  
+  <span class="ruby-comment"># Get the action command for hit/stand/split/double-down</span>
+  <span class="ruby-identifier">action</span> = <span class="ruby-ivar">@game_io</span>.<span class="ruby-identifier">get_command</span>(<span class="ruby-identifier">player</span>.<span class="ruby-identifier">get_double_down</span>, <span class="ruby-identifier">player</span>.<span class="ruby-identifier">get_split</span>)
+  
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">action</span> <span class="ruby-operator">==</span> <span class="ruby-string">&quot;h&quot;</span>
+    <span class="ruby-identifier">hit</span>(<span class="ruby-identifier">player</span>)
+  <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">action</span> <span class="ruby-operator">==</span> <span class="ruby-string">&quot;d&quot;</span>
+    <span class="ruby-identifier">player</span>.<span class="ruby-identifier">double_bet</span>
+    <span class="ruby-identifier">hit</span>(<span class="ruby-identifier">player</span>)
+  <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">action</span> <span class="ruby-operator">==</span> <span class="ruby-string">&quot;x&quot;</span>
+    <span class="ruby-identifier">split</span>(<span class="ruby-identifier">player</span>)
+    <span class="ruby-keyword">return</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-keyword">return</span>
+  <span class="ruby-keyword">end</span>
+  
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">player</span>.<span class="ruby-identifier">is_busted</span>
+    <span class="ruby-ivar">@game_io</span>.<span class="ruby-identifier">print_hand</span>(<span class="ruby-identifier">player</span>)
+    <span class="ruby-ivar">@game_io</span>.<span class="ruby-identifier">print_busted_msg</span>(<span class="ruby-identifier">player</span>)
+  <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">action</span> <span class="ruby-operator">==</span> <span class="ruby-string">&quot;d&quot;</span>
+    <span class="ruby-ivar">@game_io</span>.<span class="ruby-identifier">print_hand</span>(<span class="ruby-identifier">player</span>)
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-keyword">self</span>.<span class="ruby-identifier">play</span>(<span class="ruby-identifier">player</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- play-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- play-method -->
+
+    
+      <div id="method-i-play_split" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">play_split</span><span
+            class="method-args">(player)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Play the second hand of the split</p>
+          
+
+          
+          <div class="method-source-code" id="play_split-source">
+            <pre><span class="ruby-comment"># File BlackjackGame.rb, line 296</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">play_split</span>(<span class="ruby-identifier">player</span>)
+  <span class="ruby-ivar">@game_io</span>.<span class="ruby-identifier">print_split_hand</span>(<span class="ruby-identifier">player</span>)
+  
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">player</span>.<span class="ruby-identifier">is_split_blackjack</span>
+    <span class="ruby-ivar">@game_io</span>.<span class="ruby-identifier">print_blackjack_msg</span>(<span class="ruby-identifier">player</span>)
+    <span class="ruby-keyword">return</span>
+  <span class="ruby-keyword">end</span>
+  
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">player</span>.<span class="ruby-identifier">get_split_points</span> <span class="ruby-operator">==</span> <span class="ruby-value">21</span>
+    <span class="ruby-keyword">return</span>
+  <span class="ruby-keyword">end</span>
+  
+  <span class="ruby-comment"># Get the action command for hit/stand/double-down</span>
+  <span class="ruby-identifier">action</span> = <span class="ruby-ivar">@game_io</span>.<span class="ruby-identifier">get_command</span>(<span class="ruby-identifier">player</span>.<span class="ruby-identifier">get_split_double_down</span>, <span class="ruby-identifier">player</span>.<span class="ruby-identifier">get_split</span>)
+  
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">action</span> <span class="ruby-operator">==</span> <span class="ruby-string">&quot;h&quot;</span>
+    <span class="ruby-identifier">hit_split_hand</span>(<span class="ruby-identifier">player</span>)
+  <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">action</span> <span class="ruby-operator">==</span> <span class="ruby-string">&quot;d&quot;</span>
+    <span class="ruby-identifier">player</span>.<span class="ruby-identifier">double_split_bet</span>
+    <span class="ruby-identifier">hit_split_hand</span>(<span class="ruby-identifier">player</span>)
+  <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">action</span> <span class="ruby-operator">==</span> <span class="ruby-string">&quot;x&quot;</span>
+    <span class="ruby-identifier">split</span>(<span class="ruby-identifier">player</span>)
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-keyword">return</span>
+  <span class="ruby-keyword">end</span>
+  
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">player</span>.<span class="ruby-identifier">is_split_busted</span>
+    <span class="ruby-ivar">@game_io</span>.<span class="ruby-identifier">print_split_hand</span>(<span class="ruby-identifier">player</span>)
+    <span class="ruby-ivar">@game_io</span>.<span class="ruby-identifier">print_busted_msg</span>(<span class="ruby-identifier">player</span>)
+  <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">action</span> <span class="ruby-operator">==</span> <span class="ruby-string">&quot;d&quot;</span>
+    <span class="ruby-ivar">@game_io</span>.<span class="ruby-identifier">print_split_hand</span>(<span class="ruby-identifier">player</span>)
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-keyword">self</span>.<span class="ruby-identifier">play_split</span>(<span class="ruby-identifier">player</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- play_split-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- play_split-method -->
+
+    
+      <div id="method-i-players_place_bets" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">players_place_bets</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Players place their respective bets</p>
+          
+
+          
+          <div class="method-source-code" id="players_place_bets-source">
+            <pre><span class="ruby-comment"># File BlackjackGame.rb, line 156</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">players_place_bets</span>
+  <span class="ruby-ivar">@players</span>.<span class="ruby-identifier">each</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">player</span><span class="ruby-operator">|</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-operator">!</span><span class="ruby-identifier">player</span>.<span class="ruby-identifier">is_bankrupt</span>
+      <span class="ruby-identifier">valid_bet</span> = <span class="ruby-keyword">false</span>
+      <span class="ruby-keyword">until</span> <span class="ruby-identifier">valid_bet</span> <span class="ruby-keyword">do</span>
+        <span class="ruby-ivar">@game_io</span>.<span class="ruby-identifier">print_player</span>(<span class="ruby-identifier">player</span>)
+        <span class="ruby-identifier">bet_value</span> = <span class="ruby-ivar">@game_io</span>.<span class="ruby-identifier">input_bet_value</span>
+        <span class="ruby-identifier">valid_bet</span> = <span class="ruby-identifier">player</span>.<span class="ruby-identifier">make_bet</span>(<span class="ruby-identifier">bet_value</span>)
+        <span class="ruby-keyword">if</span> <span class="ruby-operator">!</span><span class="ruby-identifier">valid_bet</span>
+          <span class="ruby-ivar">@game_io</span>.<span class="ruby-identifier">print_msg</span>(<span class="ruby-string">&quot;invalid_bet&quot;</span>)
+        <span class="ruby-keyword">end</span>
+      <span class="ruby-keyword">end</span>
+      <span class="ruby-ivar">@game_io</span>.<span class="ruby-identifier">print_separator</span>
+    <span class="ruby-keyword">end</span>
+  }
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- players_place_bets-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- players_place_bets-method -->
+
+    
+      <div id="method-i-remove_bankrupt_players" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">remove_bankrupt_players</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Removes bankrupt players from the players array</p>
+          
+
+          
+          <div class="method-source-code" id="remove_bankrupt_players-source">
+            <pre><span class="ruby-comment"># File BlackjackGame.rb, line 91</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">remove_bankrupt_players</span>
+  <span class="ruby-comment"># Print all bankrupt players</span>
+  <span class="ruby-ivar">@players</span>.<span class="ruby-identifier">each</span>{ <span class="ruby-operator">|</span><span class="ruby-identifier">player</span><span class="ruby-operator">|</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">player</span>.<span class="ruby-identifier">is_bankrupt</span>
+      <span class="ruby-ivar">@game_io</span>.<span class="ruby-identifier">print_player_bankrupt</span>(<span class="ruby-identifier">player</span>)
+    <span class="ruby-keyword">end</span>
+  }
+  
+  <span class="ruby-comment"># Delete bankrupt players</span>
+  <span class="ruby-ivar">@players</span>.<span class="ruby-identifier">delete_if</span>{ <span class="ruby-operator">|</span><span class="ruby-identifier">player</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">player</span>.<span class="ruby-identifier">is_bankrupt</span>
+  }
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- remove_bankrupt_players-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- remove_bankrupt_players-method -->
+
+    
+      <div id="method-i-setup_game" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">setup_game</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Initializes all players, dealer and a shoe</p>
+          
+
+          
+          <div class="method-source-code" id="setup_game-source">
+            <pre><span class="ruby-comment"># File BlackjackGame.rb, line 24</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">setup_game</span>
+  <span class="ruby-ivar">@game_io</span>.<span class="ruby-identifier">print_instructions</span>
+  <span class="ruby-ivar">@player_count</span> = <span class="ruby-ivar">@game_io</span>.<span class="ruby-identifier">input_player_count</span>
+  
+  <span class="ruby-comment"># initialize all players</span>
+  <span class="ruby-keyword">for</span> <span class="ruby-identifier">i</span> <span class="ruby-keyword">in</span> <span class="ruby-value">1</span><span class="ruby-operator">..</span><span class="ruby-ivar">@player_count</span>
+    <span class="ruby-identifier">player</span> = <span class="ruby-constant">Player</span>.<span class="ruby-identifier">new</span>
+    <span class="ruby-identifier">player</span>.<span class="ruby-identifier">id</span> = <span class="ruby-identifier">i</span>
+    <span class="ruby-identifier">player</span>.<span class="ruby-identifier">money</span> = <span class="ruby-value">1000</span>
+    <span class="ruby-ivar">@players</span>.<span class="ruby-identifier">push</span>(<span class="ruby-identifier">player</span>)
+  <span class="ruby-keyword">end</span>
+  
+  <span class="ruby-comment"># initialize dealer</span>
+  <span class="ruby-ivar">@dealer</span> = <span class="ruby-constant">Dealer</span>.<span class="ruby-identifier">new</span>
+  
+  <span class="ruby-identifier">shoe_size</span> = <span class="ruby-value">1</span> <span class="ruby-comment"># number of decks</span>
+  <span class="ruby-ivar">@shoe</span> = <span class="ruby-constant">Shoe</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">shoe_size</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- setup_game-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- setup_game-method -->
+
+    
+      <div id="method-i-split" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">split</span><span
+            class="method-args">(player)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Splits the player’s hand</p>
+          
+
+          
+          <div class="method-source-code" id="split-source">
+            <pre><span class="ruby-comment"># File BlackjackGame.rb, line 285</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">split</span>(<span class="ruby-identifier">player</span>)
+  <span class="ruby-ivar">@game_io</span>.<span class="ruby-identifier">print_split_separator_1</span>
+  <span class="ruby-identifier">player</span>.<span class="ruby-identifier">split_hand</span>
+  <span class="ruby-identifier">hit</span>(<span class="ruby-identifier">player</span>)
+  <span class="ruby-identifier">hit_split_hand</span>(<span class="ruby-identifier">player</span>)
+  <span class="ruby-identifier">play</span>(<span class="ruby-identifier">player</span>)
+  <span class="ruby-ivar">@game_io</span>.<span class="ruby-identifier">print_split_separator_2</span>
+  <span class="ruby-identifier">play_split</span>(<span class="ruby-identifier">player</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- split-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- split-method -->
+
+    
+      <div id="method-i-start_round" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">start_round</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>This method starts each round in a game.</p>
+          
+
+          
+          <div class="method-source-code" id="start_round-source">
+            <pre><span class="ruby-comment"># File BlackjackGame.rb, line 44</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">start_round</span>
+  
+  <span class="ruby-ivar">@game_io</span>.<span class="ruby-identifier">print_start_round</span>
+  
+  <span class="ruby-comment"># Remove bankrupt players, exit if everyone is bankrupt</span>
+  <span class="ruby-identifier">remove_bankrupt_players</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-operator">!</span><span class="ruby-identifier">are_active_players</span>
+    <span class="ruby-ivar">@game_io</span>.<span class="ruby-identifier">print_end</span>
+    <span class="ruby-keyword">return</span>
+  <span class="ruby-keyword">end</span>
+  
+  <span class="ruby-comment"># Clear all hands and reset the shoe</span>
+  <span class="ruby-identifier">clear_hands</span>
+  <span class="ruby-ivar">@shoe</span>.<span class="ruby-identifier">reset</span>
+  
+  <span class="ruby-comment"># Get initial bets from all players, deal cards, and start the play</span>
+  <span class="ruby-identifier">players_place_bets</span>
+  <span class="ruby-identifier">deal_cards</span>
+  <span class="ruby-identifier">all_play</span>
+  
+  <span class="ruby-ivar">@game_io</span>.<span class="ruby-identifier">print_separator</span>
+  
+  <span class="ruby-comment"># Dealer plays once all players are done</span>
+  <span class="ruby-identifier">dealers_play</span>
+  
+  <span class="ruby-ivar">@game_io</span>.<span class="ruby-identifier">print_separator</span>
+  
+  <span class="ruby-comment"># Compare all hands with the dealers hand</span>
+  <span class="ruby-identifier">evaluate_all_hands</span>
+  
+  <span class="ruby-comment">#@game_io.print_end_round</span>
+  
+  <span class="ruby-comment"># Start the next round</span>
+  <span class="ruby-identifier">start_round</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- start_round-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- start_round-method -->
+
+    
+    </section><!-- public-instance-method-details -->
+  
+  </section><!-- 5Buntitled-5D -->
+
+</div><!-- documentation -->
+
+
+<footer id="validator-badges">
+  <p><a href="http://validator.w3.org/check/referer">[Validate]</a>
+  <p>Generated by <a href="https://github.com/rdoc/rdoc">RDoc</a> 3.12.2.
+  <p>Generated with the <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish Rdoc Generator</a> 3.
+</footer>
+
