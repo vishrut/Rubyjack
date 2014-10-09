@@ -39,4 +39,12 @@ class Dealer
   def get_hand
     return @hand
   end
+  
+  # Is upcard ace
+  def is_upcard_ace
+    if @hand.hand_cards[0].symbol == 'A'
+      return true
+    end
+    return false
+  end
 end

@@ -37,17 +37,24 @@ class GameIO
   # Print game instructions
   def print_instructions
     puts ""
+    puts "====================="
+    puts "Welcome to Blackjack!"
+    puts "====================="
+    puts ""
     puts "Rules of the game:"
+    puts "------------------"
     puts "*  Dealer hits on 16 and stands on hard and soft 17"
     puts "*  Players start with $1000"
-    puts "*  Players can double-down on split"
+    puts "*  Players can double-down and split, on a split."
     puts "*  Blackjack is paid out at 3:2"
     puts "*  Normal win is paid out at 1:1"
     puts "*  Blackjacks on split are also paid out at 3:2"
     puts "*  Aces automatically assume the optimal values"
     puts "*  Doubling down and split commands only visible if you have enough money"
-    puts "*  No hole card. Dealer does not peek"
+    puts "*  Dealer peeks."
+    puts "*  Since the players are making integer bets, winnings will always be floored."
     puts ""
+    print_separator
   end
   
   # Get the player count from the input
@@ -196,21 +203,28 @@ class GameIO
   
   # Print when player has 21 points
   def print_21_msg(player)
-    puts "Player: #{player.id}. Scored 21."
+    puts "Player: #{player.id} Scored 21."
   end
   
-  # For player's first hand when a split is called
-  def print_split_separator_1
-    puts "--------------------"
-    puts "Player's first hand"
-    puts "--------------------"
-  end
-  
-  # For player's first hand when a split is called
+  # Print when player plays his split hand
   def print_split_hand_msg
     puts "-------------------"
     puts "Player's split hand"
     puts "-------------------"
+  end
+  
+  # Print when dealer plays
+  def print_dealers_play
+    puts "-------------"
+    puts "Dealer's turn"
+    puts "-------------"
+  end
+  
+  # Print when comparing hands
+  def print_compare_hands
+    puts "---------------"
+    puts "Comparing hands"
+    puts "---------------"
   end
   
   # Print when dealing cards
@@ -224,13 +238,17 @@ class GameIO
   def print_hand(player, hand)
     player_hand = hand
     cards = player_hand.get_hand_cards
-    print "Player: #{player.id}. Hand: "
+    print "Player: #{player.id} Hand: "
     cards.each { |card|
       print "#{card.symbol}#{card.suit} "
     }
-    puts "Points: #{player_hand.get_points}. Bet: #{player_hand.get_bet_amount} "
+    puts "Points: #{player_hand.get_points} Bet: #{player_hand.get_bet_amount} "
   end
   
+  # Prints player's alance
+  def print_balance(player)
+    puts "Balance: #{player.money}"
+  end
   
   # Print the dealer's hand
   def print_dealers_hand(dealer)
@@ -247,7 +265,7 @@ class GameIO
   def print_dealers_partial_hand(dealer)
     dealer_hand = dealer.get_hand
     cards = dealer_hand.get_hand_cards
-    print "Dealer. Hand: "
+    print "Dealer: Hand: "
     print "#{cards[0].symbol}#{cards[0].suit} "
     print "XX"
     puts ""

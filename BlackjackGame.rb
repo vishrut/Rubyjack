@@ -50,18 +50,31 @@ class BlackjackGame
     # Get initial bets from all players, deal cards, and start the play
     players_place_bets
     deal_cards
+    
+    if dealer.is_blackjack
+      @game_io.print_separator
+      @game_io.print_dealers_hand(dealer)
+      @game_io.print_msg('dealer_blackjack_1')
+      evaluate_all_hands
+      start_next_round
+    end
+    
     all_play
     
     @game_io.print_separator
     
     # Dealer plays once all players are done
+    @game_io.print_dealers_play
     dealers_play
     
-    @game_io.print_separator
     
-    # Compare all hands with the dealers hand
     evaluate_all_hands
-        
+    
+    start_next_round  
+    
+  end
+  
+  def start_next_round
     # Remove bankrupt players, exit if everyone is bankrupt
     remove_bankrupt_players
     if !are_active_players
@@ -75,6 +88,9 @@ class BlackjackGame
   
   # Evaluates all hands of all players
   def evaluate_all_hands
+    @game_io.print_separator
+    # Compare all hands with the dealers hand
+    @game_io.print_compare_hands
     @players.each{ |player|
        self.evaluate_player_hands(player)
     }
@@ -259,6 +275,7 @@ class BlackjackGame
     player.add_card_to_hand(hand, card)
   end
   
+  # Hit dealer
   def hit_dealer
     card = @shoe.retrieve_card
     @dealer.add_card_to_hand(card)
@@ -278,6 +295,7 @@ class BlackjackGame
   # Player plays the hand according this method
   def play(player, hand)
     @game_io.print_hand(player, hand)
+    @game_io.print_balance(player)
     
     if hand.hand_cards.size == 1
       hit(player, hand)

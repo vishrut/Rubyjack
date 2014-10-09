@@ -16,7 +16,7 @@ Rules of the game:
 *  Blackjacks on split are also paid out at 3:2
 *  Aces automatically assume the optimal values. eg: (A+3 = 14) *hit* (A+3+9 = 13)
 *  You will only see the commands for doubling down and split if you have enough money
-*  No hole card. Dealer does not peek.
+*  Dealer peeks for Blackjack.
 *  Since the players are making integer bets, winnings will always be floored.
 
 You can have a look at the Rdoc generated docs for more info.
