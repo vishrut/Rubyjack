@@ -23,5 +23,3 @@ You can have a look at the Rdoc generated docs for more info.
 
 Have fun!
 
-![There was supposed to be an image here :/](https://github.com/vishrut/Rubyjack/blob/master/rj.png "I like the retro look")
-
