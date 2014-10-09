@@ -246,6 +246,49 @@ the high level game logic.</p>
 
     <!-- Methods -->
     
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section section">
+      <h3 class="section-header">Public Class Methods</h3>
+
+    
+      <div id="method-c-new" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">new</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Initialize a new BlackJack game</p>
+          
+
+          
+          <div class="method-source-code" id="new-source">
+            <pre><span class="ruby-comment"># File BlackjackGame.rb, line 12</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">initialize</span>
+  <span class="ruby-comment"># All IO operations are performed via this object</span>
+  <span class="ruby-ivar">@game_io</span> = <span class="ruby-constant">GameIO</span>.<span class="ruby-identifier">new</span>
+  <span class="ruby-comment"># All the player objects are stored in an Array  </span>
+  <span class="ruby-ivar">@players</span> = <span class="ruby-constant">Array</span>.<span class="ruby-identifier">new</span>
+  <span class="ruby-comment"># Initialize players, dealers, shoe</span>
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">setup_game</span>
+  <span class="ruby-comment"># Start with the first round</span>
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">start_round</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- new-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- new-method -->
+
+    
+    </section><!-- public-class-method-details -->
+  
      <section id="public-instance-5Buntitled-5D-method-details" class="method-section section">
       <h3 class="section-header">Public Instance Methods</h3>
 
@@ -373,7 +416,7 @@ otherwise</p>
 
           
           <div class="method-source-code" id="compare_with_dealer-source">
-            <pre><span class="ruby-comment"># File BlackjackGame.rb, line 213</span>
+            <pre><span class="ruby-comment"># File BlackjackGame.rb, line 215</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">compare_with_dealer</span>(<span class="ruby-identifier">player</span>, <span class="ruby-identifier">hand</span>)
   
   <span class="ruby-identifier">player_blackjack</span> = <span class="ruby-identifier">hand</span>.<span class="ruby-identifier">is_blackjack</span>
@@ -390,31 +433,33 @@ otherwise</p>
   
   <span class="ruby-keyword">if</span> <span class="ruby-identifier">player_bust</span>
     <span class="ruby-ivar">@game_io</span>.<span class="ruby-identifier">print_msg</span>(<span class="ruby-string">'player_busted'</span>)
+    <span class="ruby-ivar">@game_io</span>.<span class="ruby-identifier">print_player</span>(<span class="ruby-identifier">player</span>)
   <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">dealer_bust</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-operator">!</span><span class="ruby-identifier">player_bust</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-operator">!</span><span class="ruby-identifier">player_blackjack</span>
-    <span class="ruby-identifier">pay_player</span>(<span class="ruby-identifier">player</span>, <span class="ruby-value">2</span> * <span class="ruby-identifier">bet</span>)
     <span class="ruby-ivar">@game_io</span>.<span class="ruby-identifier">print_msg</span>(<span class="ruby-string">'dealer_busted'</span>)
+    <span class="ruby-identifier">pay_player</span>(<span class="ruby-identifier">player</span>, <span class="ruby-value">2</span> * <span class="ruby-identifier">bet</span>)
   <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">dealer_bust</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">player_blackjack</span>
-    <span class="ruby-identifier">pay_player</span>(<span class="ruby-identifier">player</span>, <span class="ruby-value">2.5</span> * <span class="ruby-identifier">hand</span>.<span class="ruby-identifier">get_bet_amount</span>)
     <span class="ruby-ivar">@game_io</span>.<span class="ruby-identifier">print_msg</span>(<span class="ruby-string">'player_blackjack'</span>)
+    <span class="ruby-identifier">pay_player</span>(<span class="ruby-identifier">player</span>, <span class="ruby-value">2.5</span> * <span class="ruby-identifier">hand</span>.<span class="ruby-identifier">get_bet_amount</span>)
   <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">player_blackjack</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">dealer_blackjack</span>
-    <span class="ruby-identifier">pay_player</span>(<span class="ruby-identifier">player</span>, <span class="ruby-identifier">bet</span>) <span class="ruby-comment">#return bet</span>
     <span class="ruby-ivar">@game_io</span>.<span class="ruby-identifier">print_msg</span>(<span class="ruby-string">'blackjack_tie'</span>)
+    <span class="ruby-identifier">pay_player</span>(<span class="ruby-identifier">player</span>, <span class="ruby-identifier">bet</span>) <span class="ruby-comment">#return bet</span>
   <span class="ruby-keyword">elsif</span> <span class="ruby-operator">!</span><span class="ruby-identifier">player_blackjack</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">dealer_blackjack</span>
     <span class="ruby-ivar">@game_io</span>.<span class="ruby-identifier">print_msg</span>(<span class="ruby-string">'dealer_blackjack'</span>)
+    <span class="ruby-ivar">@game_io</span>.<span class="ruby-identifier">print_player</span>(<span class="ruby-identifier">player</span>)
   <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">player_blackjack</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-operator">!</span><span class="ruby-identifier">dealer_blackjack</span>
-    <span class="ruby-identifier">pay_player</span>(<span class="ruby-identifier">player</span>, <span class="ruby-value">2.5</span> * <span class="ruby-identifier">bet</span>)
     <span class="ruby-ivar">@game_io</span>.<span class="ruby-identifier">print_msg</span>(<span class="ruby-string">'player_blackjack'</span>)
+    <span class="ruby-identifier">pay_player</span>(<span class="ruby-identifier">player</span>, <span class="ruby-value">2.5</span> * <span class="ruby-identifier">bet</span>)
   <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">player_points</span> <span class="ruby-operator">&gt;</span> <span class="ruby-identifier">dealer_points</span>
-    <span class="ruby-identifier">pay_player</span>(<span class="ruby-identifier">player</span>, <span class="ruby-value">2</span> * <span class="ruby-identifier">bet</span>)
     <span class="ruby-ivar">@game_io</span>.<span class="ruby-identifier">print_msg</span>(<span class="ruby-string">'player_wins'</span>)
+    <span class="ruby-identifier">pay_player</span>(<span class="ruby-identifier">player</span>, <span class="ruby-value">2</span> * <span class="ruby-identifier">bet</span>)
   <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">player_points</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">dealer_points</span>
-    <span class="ruby-identifier">pay_player</span>(<span class="ruby-identifier">player</span>, <span class="ruby-identifier">bet</span>)
     <span class="ruby-ivar">@game_io</span>.<span class="ruby-identifier">print_msg</span>(<span class="ruby-string">'tie'</span>)
+    <span class="ruby-identifier">pay_player</span>(<span class="ruby-identifier">player</span>, <span class="ruby-identifier">bet</span>)
   <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">player_points</span> <span class="ruby-operator">&lt;</span> <span class="ruby-identifier">dealer_points</span>
     <span class="ruby-ivar">@game_io</span>.<span class="ruby-identifier">print_msg</span>(<span class="ruby-string">'dealer_wins'</span>)
+    <span class="ruby-ivar">@game_io</span>.<span class="ruby-identifier">print_player</span>(<span class="ruby-identifier">player</span>)
   <span class="ruby-keyword">end</span>
 
-  <span class="ruby-ivar">@game_io</span>.<span class="ruby-identifier">print_player</span>(<span class="ruby-identifier">player</span>)
   <span class="ruby-ivar">@game_io</span>.<span class="ruby-identifier">print_separator</span>
   
 <span class="ruby-keyword">end</span></pre>
@@ -444,7 +489,7 @@ otherwise</p>
 
           
           <div class="method-source-code" id="deal_cards-source">
-            <pre><span class="ruby-comment"># File BlackjackGame.rb, line 259</span>
+            <pre><span class="ruby-comment"># File BlackjackGame.rb, line 263</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">deal_cards</span>
   <span class="ruby-ivar">@game_io</span>.<span class="ruby-identifier">print_deal_cards</span>
   <span class="ruby-keyword">for</span> <span class="ruby-identifier">i</span> <span class="ruby-keyword">in</span> <span class="ruby-value">1</span><span class="ruby-operator">..</span><span class="ruby-value">2</span>
@@ -536,7 +581,7 @@ their plays</p>
 
           
           <div class="method-source-code" id="double_down-source">
-            <pre><span class="ruby-comment"># File BlackjackGame.rb, line 285</span>
+            <pre><span class="ruby-comment"># File BlackjackGame.rb, line 289</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">double_down</span>(<span class="ruby-identifier">player</span>, <span class="ruby-identifier">hand</span>)
   <span class="ruby-identifier">player</span>.<span class="ruby-identifier">double_bet_on_hand</span>(<span class="ruby-identifier">hand</span>)
   <span class="ruby-identifier">hit</span>(<span class="ruby-identifier">player</span>, <span class="ruby-identifier">hand</span>)
@@ -635,7 +680,7 @@ their plays</p>
 
           
           <div class="method-source-code" id="hit-source">
-            <pre><span class="ruby-comment"># File BlackjackGame.rb, line 273</span>
+            <pre><span class="ruby-comment"># File BlackjackGame.rb, line 277</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">hit</span>(<span class="ruby-identifier">player</span>, <span class="ruby-identifier">hand</span>)
   <span class="ruby-identifier">card</span> = <span class="ruby-ivar">@shoe</span>.<span class="ruby-identifier">retrieve_card</span>
   <span class="ruby-identifier">player</span>.<span class="ruby-identifier">add_card_to_hand</span>(<span class="ruby-identifier">hand</span>, <span class="ruby-identifier">card</span>)
@@ -666,7 +711,7 @@ their plays</p>
 
           
           <div class="method-source-code" id="hit_dealer-source">
-            <pre><span class="ruby-comment"># File BlackjackGame.rb, line 279</span>
+            <pre><span class="ruby-comment"># File BlackjackGame.rb, line 283</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">hit_dealer</span>
   <span class="ruby-identifier">card</span> = <span class="ruby-ivar">@shoe</span>.<span class="ruby-identifier">retrieve_card</span>
   <span class="ruby-ivar">@dealer</span>.<span class="ruby-identifier">add_card_to_hand</span>(<span class="ruby-identifier">card</span>)
@@ -699,7 +744,9 @@ their plays</p>
           <div class="method-source-code" id="pay_player-source">
             <pre><span class="ruby-comment"># File BlackjackGame.rb, line 208</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">pay_player</span>(<span class="ruby-identifier">player</span>, <span class="ruby-identifier">amount</span>)
+  <span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;Previous Balance: #{player.money} Winnings: #{amount.floor}&quot;</span>
   <span class="ruby-identifier">player</span>.<span class="ruby-identifier">add_money</span>(<span class="ruby-identifier">amount</span>)
+  <span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;New Balance: #{player.money}&quot;</span>
 <span class="ruby-keyword">end</span></pre>
           </div><!-- pay_player-source -->
           
@@ -727,7 +774,7 @@ their plays</p>
 
           
           <div class="method-source-code" id="play-source">
-            <pre><span class="ruby-comment"># File BlackjackGame.rb, line 296</span>
+            <pre><span class="ruby-comment"># File BlackjackGame.rb, line 300</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">play</span>(<span class="ruby-identifier">player</span>, <span class="ruby-identifier">hand</span>)
   <span class="ruby-ivar">@game_io</span>.<span class="ruby-identifier">print_hand</span>(<span class="ruby-identifier">player</span>, <span class="ruby-identifier">hand</span>)
   <span class="ruby-ivar">@game_io</span>.<span class="ruby-identifier">print_balance</span>(<span class="ruby-identifier">player</span>)
@@ -963,7 +1010,7 @@ their plays</p>
 
           
           <div class="method-source-code" id="split-source">
-            <pre><span class="ruby-comment"># File BlackjackGame.rb, line 291</span>
+            <pre><span class="ruby-comment"># File BlackjackGame.rb, line 295</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">split</span>(<span class="ruby-identifier">player</span>, <span class="ruby-identifier">hand</span>)
   <span class="ruby-identifier">player</span>.<span class="ruby-identifier">split_hand</span>(<span class="ruby-identifier">hand</span>)
 <span class="ruby-keyword">end</span></pre>
@@ -1077,49 +1124,6 @@ their plays</p>
 
     
     </section><!-- public-instance-method-details -->
-  
-     <section id="public-class-5Buntitled-5D-method-details" class="method-section section">
-      <h3 class="section-header">Public Class Methods</h3>
-
-    
-      <div id="method-c-new" class="method-detail ">
-        
-        <div class="method-heading">
-          <span class="method-name">new</span><span
-            class="method-args">()</span>
-          <span class="method-click-advice">click to toggle source</span>
-        </div>
-        
-
-        <div class="method-description">
-          
-          <p>Initialize a new BlackJack game</p>
-          
-
-          
-          <div class="method-source-code" id="new-source">
-            <pre><span class="ruby-comment"># File BlackjackGame.rb, line 12</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier">initialize</span>
-  <span class="ruby-comment"># All IO operations are performed via this object</span>
-  <span class="ruby-ivar">@game_io</span> = <span class="ruby-constant">GameIO</span>.<span class="ruby-identifier">new</span>
-  <span class="ruby-comment"># All the player objects are stored in an Array  </span>
-  <span class="ruby-ivar">@players</span> = <span class="ruby-constant">Array</span>.<span class="ruby-identifier">new</span>
-  <span class="ruby-comment"># Initialize players, dealers, shoe</span>
-  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">setup_game</span>
-  <span class="ruby-comment"># Start with the first round</span>
-  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">start_round</span>
-<span class="ruby-keyword">end</span></pre>
-          </div><!-- new-source -->
-          
-        </div>
-
-        
-
-        
-      </div><!-- new-method -->
-
-    
-    </section><!-- public-class-method-details -->
   
   </section><!-- 5Buntitled-5D -->
 

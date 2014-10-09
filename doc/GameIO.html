@@ -208,6 +208,64 @@ the input/output operations of the game.</p>
 
     <!-- Methods -->
     
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section section">
+      <h3 class="section-header">Public Class Methods</h3>
+
+    
+      <div id="method-c-new" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">new</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Initialize the <a href="GameIO.html">GameIO</a> class</p>
+          
+
+          
+          <div class="method-source-code" id="new-source">
+            <pre><span class="ruby-comment"># File GameIO.rb, line 6</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">initialize</span>
+  <span class="ruby-comment"># All messages are stored in a map for convenient re-usability</span>
+  <span class="ruby-ivar">@messages</span> = {<span class="ruby-string">&quot;invalid_bet&quot;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;Invalid bet. Your bet must be between 0 and your available amount.&quot;</span>,
+               <span class="ruby-string">&quot;input_player_count&quot;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;Please enter the number of players - &quot;</span>,
+               <span class="ruby-string">&quot;input_shoe_size&quot;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;Please enter the number of decks.&quot;</span>,
+               <span class="ruby-string">&quot;instructions&quot;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;Game instructions go here.&quot;</span>,
+               <span class="ruby-string">&quot;make_bet&quot;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;Please enter the bet amount.&quot;</span>,
+               <span class="ruby-string">&quot;hit_or_stay&quot;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;Enter s to stand\nEnter h to hit.&quot;</span>,
+               <span class="ruby-string">&quot;dealer_blackjack_1&quot;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;Dealer has blackjack!&quot;</span>,
+               <span class="ruby-string">&quot;dealer_busted&quot;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;Dealer busted!&quot;</span>,
+               <span class="ruby-string">&quot;blackjack_tie&quot;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;Dealer and player both have a blackjack. Bet pushed back.&quot;</span>,
+               <span class="ruby-string">&quot;player_blackjack&quot;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;Player has a blackjack, dealer does not. Player wins.&quot;</span>,
+               <span class="ruby-string">&quot;dealer_blackjack&quot;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;Dealer has a blackjack, player does not. Dealer wins&quot;</span>,
+               <span class="ruby-string">&quot;player_wins&quot;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;Player wins.&quot;</span>,
+               <span class="ruby-string">&quot;dealer_wins&quot;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;Dealer wins.&quot;</span>,
+               <span class="ruby-string">&quot;tie&quot;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;Tie! Bet pushed back.&quot;</span>,
+               <span class="ruby-string">&quot;player_busted&quot;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;Player busted. Player loses the bet.&quot;</span>,
+               <span class="ruby-string">&quot;dealer_busted&quot;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;Dealer busted.&quot;</span>,
+               <span class="ruby-string">&quot;round_complete&quot;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;ROUND COMPLETE.&quot;</span>,
+               <span class="ruby-string">&quot;round_begin&quot;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;NEW ROUND BEGINS.&quot;</span>,
+               <span class="ruby-string">&quot;invalid_command&quot;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;Please enter a valid command.&quot;</span>,
+               <span class="ruby-string">&quot;can_double_down&quot;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;Enter d to double down.&quot;</span>,
+               <span class="ruby-string">&quot;can_split&quot;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;Enter x to split.&quot;</span>
+               }
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- new-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- new-method -->
+
+    
+    </section><!-- public-class-method-details -->
+  
      <section id="public-instance-5Buntitled-5D-method-details" class="method-section section">
       <h3 class="section-header">Public Instance Methods</h3>
 
@@ -1118,7 +1176,7 @@ double-down and splitting are valid.</p>
   <span class="ruby-keyword">else</span>
     <span class="ruby-identifier">print</span> <span class="ruby-node">&quot;#{dealer.get_points} &quot;</span>
   <span class="ruby-keyword">end</span>
-  <span class="ruby-identifier">puts</span> <span class="ruby-string">&quot;&quot;</span>
+  <span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;Bet: #{hand.get_bet_amount}&quot;</span>
 <span class="ruby-keyword">end</span></pre>
           </div><!-- print_vs_msg-source -->
           
@@ -1131,64 +1189,6 @@ double-down and splitting are valid.</p>
 
     
     </section><!-- public-instance-method-details -->
-  
-     <section id="public-class-5Buntitled-5D-method-details" class="method-section section">
-      <h3 class="section-header">Public Class Methods</h3>
-
-    
-      <div id="method-c-new" class="method-detail ">
-        
-        <div class="method-heading">
-          <span class="method-name">new</span><span
-            class="method-args">()</span>
-          <span class="method-click-advice">click to toggle source</span>
-        </div>
-        
-
-        <div class="method-description">
-          
-          <p>Initialize the <a href="GameIO.html">GameIO</a> class</p>
-          
-
-          
-          <div class="method-source-code" id="new-source">
-            <pre><span class="ruby-comment"># File GameIO.rb, line 6</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier">initialize</span>
-  <span class="ruby-comment"># All messages are stored in a map for convenient re-usability</span>
-  <span class="ruby-ivar">@messages</span> = {<span class="ruby-string">&quot;invalid_bet&quot;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;Invalid bet. Your bet must be between 0 and your available amount.&quot;</span>,
-               <span class="ruby-string">&quot;input_player_count&quot;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;Please enter the number of players - &quot;</span>,
-               <span class="ruby-string">&quot;input_shoe_size&quot;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;Please enter the number of decks.&quot;</span>,
-               <span class="ruby-string">&quot;instructions&quot;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;Game instructions go here.&quot;</span>,
-               <span class="ruby-string">&quot;make_bet&quot;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;Please enter the bet amount.&quot;</span>,
-               <span class="ruby-string">&quot;hit_or_stay&quot;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;Enter s to stand\nEnter h to hit.&quot;</span>,
-               <span class="ruby-string">&quot;dealer_blackjack_1&quot;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;Dealer has blackjack!&quot;</span>,
-               <span class="ruby-string">&quot;dealer_busted&quot;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;Dealer busted!&quot;</span>,
-               <span class="ruby-string">&quot;blackjack_tie&quot;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;Dealer and player both have a blackjack. Bet pushed back.&quot;</span>,
-               <span class="ruby-string">&quot;player_blackjack&quot;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;Player has a blackjack, dealer does not. Player wins.&quot;</span>,
-               <span class="ruby-string">&quot;dealer_blackjack&quot;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;Dealer has a blackjack, player does not. Dealer wins&quot;</span>,
-               <span class="ruby-string">&quot;player_wins&quot;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;Player wins.&quot;</span>,
-               <span class="ruby-string">&quot;dealer_wins&quot;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;Dealer wins.&quot;</span>,
-               <span class="ruby-string">&quot;tie&quot;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;Tie! Bet pushed back.&quot;</span>,
-               <span class="ruby-string">&quot;player_busted&quot;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;Player busted. Player loses the bet.&quot;</span>,
-               <span class="ruby-string">&quot;dealer_busted&quot;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;Dealer busted.&quot;</span>,
-               <span class="ruby-string">&quot;round_complete&quot;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;ROUND COMPLETE.&quot;</span>,
-               <span class="ruby-string">&quot;round_begin&quot;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;NEW ROUND BEGINS.&quot;</span>,
-               <span class="ruby-string">&quot;invalid_command&quot;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;Please enter a valid command.&quot;</span>,
-               <span class="ruby-string">&quot;can_double_down&quot;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;Enter d to double down.&quot;</span>,
-               <span class="ruby-string">&quot;can_split&quot;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;Enter x to split.&quot;</span>
-               }
-<span class="ruby-keyword">end</span></pre>
-          </div><!-- new-source -->
-          
-        </div>
-
-        
-
-        
-      </div><!-- new-method -->
-
-    
-    </section><!-- public-class-method-details -->
   
   </section><!-- 5Buntitled-5D -->
 
