@@ -82,7 +82,9 @@
     
     <li><a href="#method-i-is_blackjack">#is_blackjack</a>
     
-    <li><a href="#method-i-is_busted">#is_busted</a>
+    <li><a href="#method-i-is_bust">#is_bust</a>
+    
+    <li><a href="#method-i-is_upcard_ace">#is_upcard_ace</a>
     
   </ul>
 </nav>
@@ -165,43 +167,6 @@
 
     <!-- Methods -->
     
-     <section id="public-class-5Buntitled-5D-method-details" class="method-section section">
-      <h3 class="section-header">Public Class Methods</h3>
-
-    
-      <div id="method-c-new" class="method-detail ">
-        
-        <div class="method-heading">
-          <span class="method-name">new</span><span
-            class="method-args">()</span>
-          <span class="method-click-advice">click to toggle source</span>
-        </div>
-        
-
-        <div class="method-description">
-          
-          <p>Initialize dealer with an empty hand</p>
-          
-
-          
-          <div class="method-source-code" id="new-source">
-            <pre><span class="ruby-comment"># File Dealer.rb, line 8</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier">initialize</span>
-  <span class="ruby-comment"># Initialize an empty hand for the dealer</span>
-  <span class="ruby-ivar">@hand</span> = <span class="ruby-constant">DealerHand</span>.<span class="ruby-identifier">new</span>
-<span class="ruby-keyword">end</span></pre>
-          </div><!-- new-source -->
-          
-        </div>
-
-        
-
-        
-      </div><!-- new-method -->
-
-    
-    </section><!-- public-class-method-details -->
-  
      <section id="public-instance-5Buntitled-5D-method-details" class="method-section section">
       <h3 class="section-header">Public Instance Methods</h3>
 
@@ -356,10 +321,10 @@
       </div><!-- is_blackjack-method -->
 
     
-      <div id="method-i-is_busted" class="method-detail ">
+      <div id="method-i-is_bust" class="method-detail ">
         
         <div class="method-heading">
-          <span class="method-name">is_busted</span><span
+          <span class="method-name">is_bust</span><span
             class="method-args">()</span>
           <span class="method-click-advice">click to toggle source</span>
         </div>
@@ -371,22 +336,92 @@
           
 
           
-          <div class="method-source-code" id="is_busted-source">
+          <div class="method-source-code" id="is_bust-source">
             <pre><span class="ruby-comment"># File Dealer.rb, line 19</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier">is_busted</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">is_bust</span>
   <span class="ruby-keyword">return</span> <span class="ruby-ivar">@hand</span>.<span class="ruby-identifier">is_bust</span>
 <span class="ruby-keyword">end</span></pre>
-          </div><!-- is_busted-source -->
+          </div><!-- is_bust-source -->
           
         </div>
 
         
 
         
-      </div><!-- is_busted-method -->
+      </div><!-- is_bust-method -->
+
+    
+      <div id="method-i-is_upcard_ace" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">is_upcard_ace</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Is upcard ace</p>
+          
+
+          
+          <div class="method-source-code" id="is_upcard_ace-source">
+            <pre><span class="ruby-comment"># File Dealer.rb, line 44</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">is_upcard_ace</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-ivar">@hand</span>.<span class="ruby-identifier">hand_cards</span>[<span class="ruby-value">0</span>].<span class="ruby-identifier">symbol</span> <span class="ruby-operator">==</span> <span class="ruby-string">'A'</span>
+    <span class="ruby-keyword">return</span> <span class="ruby-keyword">true</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">false</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- is_upcard_ace-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- is_upcard_ace-method -->
 
     
     </section><!-- public-instance-method-details -->
+  
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section section">
+      <h3 class="section-header">Public Class Methods</h3>
+
+    
+      <div id="method-c-new" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">new</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Initialize dealer with an empty hand</p>
+          
+
+          
+          <div class="method-source-code" id="new-source">
+            <pre><span class="ruby-comment"># File Dealer.rb, line 8</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">initialize</span>
+  <span class="ruby-comment"># Initialize an empty hand for the dealer</span>
+  <span class="ruby-ivar">@hand</span> = <span class="ruby-constant">DealerHand</span>.<span class="ruby-identifier">new</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- new-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- new-method -->
+
+    
+    </section><!-- public-class-method-details -->
   
   </section><!-- 5Buntitled-5D -->
 

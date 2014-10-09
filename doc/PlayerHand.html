@@ -70,11 +70,19 @@
 
   <ul class="link-list">
     
+    <li><a href="#method-c-new">::new</a>
+    
+    <li><a href="#method-i-add_bet_amount">#add_bet_amount</a>
+    
     <li><a href="#method-i-clear_hand">#clear_hand</a>
     
-    <li><a href="#method-i-get_double_down">#get_double_down</a>
+    <li><a href="#method-i-double_bet_amount">#double_bet_amount</a>
     
-    <li><a href="#method-i-get_split">#get_split</a>
+    <li><a href="#method-i-get_bet_amount">#get_bet_amount</a>
+    
+    <li><a href="#method-i-valid_for_double_down">#valid_for_double_down</a>
+    
+    <li><a href="#method-i-valid_for_split">#valid_for_split</a>
     
   </ul>
 </nav>
@@ -140,22 +148,9 @@ href="Hand.html">Hand</a> class</p>
       <h3 class="section-header">Attributes</h3>
 
       
-      <div id="attribute-i-can_double_down" class="method-detail">
+      <div id="attribute-i-bet_amount" class="method-detail">
         <div class="method-heading attribute-method-heading">
-          <span class="method-name">can_double_down</span><span
-            class="attribute-access-type">[RW]</span>
-        </div>
-
-        <div class="method-description">
-        
-        
-        
-        </div>
-      </div>
-      
-      <div id="attribute-i-can_split" class="method-detail">
-        <div class="method-heading attribute-method-heading">
-          <span class="method-name">can_split</span><span
+          <span class="method-name">bet_amount</span><span
             class="attribute-access-type">[RW]</span>
         </div>
 
@@ -175,6 +170,36 @@ href="Hand.html">Hand</a> class</p>
       <h3 class="section-header">Public Instance Methods</h3>
 
     
+      <div id="method-i-add_bet_amount" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">add_bet_amount</span><span
+            class="method-args">(amount_added)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Add to bet amount</p>
+          
+
+          
+          <div class="method-source-code" id="add_bet_amount-source">
+            <pre><span class="ruby-comment"># File PlayerHand.rb, line 19</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">add_bet_amount</span>(<span class="ruby-identifier">amount_added</span>)
+  <span class="ruby-ivar">@bet_amount</span> = <span class="ruby-identifier">bet_amount</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">amount_added</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- add_bet_amount-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- add_bet_amount-method -->
+
+    
       <div id="method-i-clear_hand" class="method-detail ">
         
         <div class="method-heading">
@@ -191,7 +216,7 @@ href="Hand.html">Hand</a> class</p>
 
           
           <div class="method-source-code" id="clear_hand-source">
-            <pre><span class="ruby-comment"># File PlayerHand.rb, line 8</span>
+            <pre><span class="ruby-comment"># File PlayerHand.rb, line 29</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">clear_hand</span>
   <span class="ruby-ivar">@hand_cards</span>.<span class="ruby-identifier">clear</span>
   <span class="ruby-ivar">@points</span> = <span class="ruby-value">0</span>
@@ -206,10 +231,10 @@ href="Hand.html">Hand</a> class</p>
       </div><!-- clear_hand-method -->
 
     
-      <div id="method-i-get_double_down" class="method-detail ">
+      <div id="method-i-double_bet_amount" class="method-detail ">
         
         <div class="method-heading">
-          <span class="method-name">get_double_down</span><span
+          <span class="method-name">double_bet_amount</span><span
             class="method-args">()</span>
           <span class="method-click-advice">click to toggle source</span>
         </div>
@@ -217,33 +242,29 @@ href="Hand.html">Hand</a> class</p>
 
         <div class="method-description">
           
-          <p>Return true if a player has two cards</p>
+          <p>Double bet amount</p>
           
 
           
-          <div class="method-source-code" id="get_double_down-source">
-            <pre><span class="ruby-comment"># File PlayerHand.rb, line 23</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier">get_double_down</span>
-  <span class="ruby-ivar">@can_double_down</span> = <span class="ruby-keyword">false</span>
-  <span class="ruby-keyword">if</span> <span class="ruby-ivar">@hand_cards</span>.<span class="ruby-identifier">size</span> <span class="ruby-operator">==</span> <span class="ruby-value">2</span>
-    <span class="ruby-ivar">@can_double_down</span> = <span class="ruby-keyword">true</span>
-  <span class="ruby-keyword">end</span>
-  <span class="ruby-keyword">return</span> <span class="ruby-ivar">@can_double_down</span>
+          <div class="method-source-code" id="double_bet_amount-source">
+            <pre><span class="ruby-comment"># File PlayerHand.rb, line 24</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">double_bet_amount</span>()
+  <span class="ruby-identifier">add_bet_amount</span>(<span class="ruby-ivar">@bet_amount</span>)
 <span class="ruby-keyword">end</span></pre>
-          </div><!-- get_double_down-source -->
+          </div><!-- double_bet_amount-source -->
           
         </div>
 
         
 
         
-      </div><!-- get_double_down-method -->
+      </div><!-- double_bet_amount-method -->
 
     
-      <div id="method-i-get_split" class="method-detail ">
+      <div id="method-i-get_bet_amount" class="method-detail ">
         
         <div class="method-heading">
-          <span class="method-name">get_split</span><span
+          <span class="method-name">get_bet_amount</span><span
             class="method-args">()</span>
           <span class="method-click-advice">click to toggle source</span>
         </div>
@@ -251,30 +272,136 @@ href="Hand.html">Hand</a> class</p>
 
         <div class="method-description">
           
-          <p>Return true if both the card have the same type</p>
+          <p>Return the amount bet by the player on this hand</p>
           
 
           
-          <div class="method-source-code" id="get_split-source">
+          <div class="method-source-code" id="get_bet_amount-source">
             <pre><span class="ruby-comment"># File PlayerHand.rb, line 14</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier">get_split</span>
-  <span class="ruby-ivar">@can_split</span> = <span class="ruby-keyword">false</span>
-  <span class="ruby-keyword">if</span> (<span class="ruby-ivar">@hand_cards</span>.<span class="ruby-identifier">size</span> <span class="ruby-operator">==</span> <span class="ruby-value">2</span>) <span class="ruby-operator">&amp;&amp;</span> (<span class="ruby-identifier">hand_cards</span>[<span class="ruby-value">0</span>].<span class="ruby-identifier">symbol</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">hand_cards</span>[<span class="ruby-value">1</span>].<span class="ruby-identifier">symbol</span>)
-    <span class="ruby-ivar">@can_split</span> = <span class="ruby-keyword">true</span>
-  <span class="ruby-keyword">end</span> 
-  <span class="ruby-keyword">return</span> <span class="ruby-ivar">@can_split</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">get_bet_amount</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-ivar">@bet_amount</span>
 <span class="ruby-keyword">end</span></pre>
-          </div><!-- get_split-source -->
+          </div><!-- get_bet_amount-source -->
           
         </div>
 
         
 
         
-      </div><!-- get_split-method -->
+      </div><!-- get_bet_amount-method -->
+
+    
+      <div id="method-i-valid_for_double_down" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">valid_for_double_down</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Return true if a hand is eligible for double down Note that this does not
+return if a player can double down since the player needs to have enough
+money to do that</p>
+          
+
+          
+          <div class="method-source-code" id="valid_for_double_down-source">
+            <pre><span class="ruby-comment"># File PlayerHand.rb, line 37</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">valid_for_double_down</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-ivar">@hand_cards</span>.<span class="ruby-identifier">size</span> <span class="ruby-operator">==</span> <span class="ruby-value">2</span>
+    <span class="ruby-keyword">return</span> <span class="ruby-keyword">true</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-keyword">return</span> <span class="ruby-keyword">false</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- valid_for_double_down-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- valid_for_double_down-method -->
+
+    
+      <div id="method-i-valid_for_split" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">valid_for_split</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Return true if a hand is eligible for a split Note that this does not
+return if a player can split since the player needs to have enough money to
+do that</p>
+          
+
+          
+          <div class="method-source-code" id="valid_for_split-source">
+            <pre><span class="ruby-comment"># File PlayerHand.rb, line 48</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">valid_for_split</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-ivar">@hand_cards</span>.<span class="ruby-identifier">size</span> <span class="ruby-operator">==</span> <span class="ruby-value">2</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-ivar">@hand_cards</span>[<span class="ruby-value">0</span>].<span class="ruby-identifier">symbol</span> <span class="ruby-operator">==</span> <span class="ruby-ivar">@hand_cards</span>[<span class="ruby-value">1</span>].<span class="ruby-identifier">symbol</span>
+      <span class="ruby-keyword">return</span> <span class="ruby-keyword">true</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">false</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- valid_for_split-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- valid_for_split-method -->
 
     
     </section><!-- public-instance-method-details -->
+  
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section section">
+      <h3 class="section-header">Public Class Methods</h3>
+
+    
+      <div id="method-c-new" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">new</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Initialize an empty hand</p>
+          
+
+          
+          <div class="method-source-code" id="new-source">
+            <pre><span class="ruby-comment"># File PlayerHand.rb, line 8</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">initialize</span>
+  <span class="ruby-keyword">super</span>
+  <span class="ruby-ivar">@bet_amount</span> = <span class="ruby-value">0</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- new-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- new-method -->
+
+    
+    </section><!-- public-class-method-details -->
   
   </section><!-- 5Buntitled-5D -->
 

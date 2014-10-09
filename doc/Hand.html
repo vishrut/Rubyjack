@@ -74,6 +74,8 @@
     
     <li><a href="#method-i-add_card">#add_card</a>
     
+    <li><a href="#method-i-clear_hand">#clear_hand</a>
+    
     <li><a href="#method-i-get_hand_cards">#get_hand_cards</a>
     
     <li><a href="#method-i-get_points">#get_points</a>
@@ -181,43 +183,6 @@ cards and the points</p>
 
     <!-- Methods -->
     
-     <section id="public-class-5Buntitled-5D-method-details" class="method-section section">
-      <h3 class="section-header">Public Class Methods</h3>
-
-    
-      <div id="method-c-new" class="method-detail ">
-        
-        <div class="method-heading">
-          <span class="method-name">new</span><span
-            class="method-args">()</span>
-          <span class="method-click-advice">click to toggle source</span>
-        </div>
-        
-
-        <div class="method-description">
-          
-          <p>Initialize an empty hand</p>
-          
-
-          
-          <div class="method-source-code" id="new-source">
-            <pre><span class="ruby-comment"># File Hand.rb, line 6</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier">initialize</span>
-  <span class="ruby-ivar">@hand_cards</span> = <span class="ruby-constant">Array</span>.<span class="ruby-identifier">new</span>
-  <span class="ruby-ivar">@points</span> = <span class="ruby-value">0</span>
-<span class="ruby-keyword">end</span></pre>
-          </div><!-- new-source -->
-          
-        </div>
-
-        
-
-        
-      </div><!-- new-method -->
-
-    
-    </section><!-- public-class-method-details -->
-  
      <section id="public-instance-5Buntitled-5D-method-details" class="method-section section">
       <h3 class="section-header">Public Instance Methods</h3>
 
@@ -241,7 +206,6 @@ cards and the points</p>
             <pre><span class="ruby-comment"># File Hand.rb, line 12</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">add_card</span>(<span class="ruby-identifier">card</span>)
   <span class="ruby-ivar">@hand_cards</span>.<span class="ruby-identifier">push</span>(<span class="ruby-identifier">card</span>)
-  <span class="ruby-identifier">update_points</span>
 <span class="ruby-keyword">end</span></pre>
           </div><!-- add_card-source -->
           
@@ -251,6 +215,37 @@ cards and the points</p>
 
         
       </div><!-- add_card-method -->
+
+    
+      <div id="method-i-clear_hand" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">clear_hand</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Clear all card from the hand, reset the points</p>
+          
+
+          
+          <div class="method-source-code" id="clear_hand-source">
+            <pre><span class="ruby-comment"># File Hand.rb, line 34</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">clear_hand</span>
+  <span class="ruby-ivar">@hand_cards</span>.<span class="ruby-identifier">clear</span>
+  <span class="ruby-ivar">@points</span> = <span class="ruby-value">0</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- clear_hand-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- clear_hand-method -->
 
     
       <div id="method-i-get_hand_cards" class="method-detail ">
@@ -269,7 +264,7 @@ cards and the points</p>
 
           
           <div class="method-source-code" id="get_hand_cards-source">
-            <pre><span class="ruby-comment"># File Hand.rb, line 30</span>
+            <pre><span class="ruby-comment"># File Hand.rb, line 29</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">get_hand_cards</span>
   <span class="ruby-keyword">return</span> <span class="ruby-ivar">@hand_cards</span>
 <span class="ruby-keyword">end</span></pre>
@@ -299,8 +294,9 @@ cards and the points</p>
 
           
           <div class="method-source-code" id="get_points-source">
-            <pre><span class="ruby-comment"># File Hand.rb, line 25</span>
+            <pre><span class="ruby-comment"># File Hand.rb, line 23</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">get_points</span>
+  <span class="ruby-identifier">update_points</span>
   <span class="ruby-keyword">return</span> <span class="ruby-ivar">@points</span>
 <span class="ruby-keyword">end</span></pre>
           </div><!-- get_points-source -->
@@ -329,7 +325,7 @@ cards and the points</p>
 
           
           <div class="method-source-code" id="is_blackjack-source">
-            <pre><span class="ruby-comment"># File Hand.rb, line 50</span>
+            <pre><span class="ruby-comment"># File Hand.rb, line 55</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">is_blackjack</span>
   <span class="ruby-identifier">face</span> = <span class="ruby-keyword">false</span>
   <span class="ruby-identifier">ace</span> = <span class="ruby-keyword">false</span>
@@ -372,7 +368,7 @@ cards and the points</p>
 
           
           <div class="method-source-code" id="is_bust-source">
-            <pre><span class="ruby-comment"># File Hand.rb, line 68</span>
+            <pre><span class="ruby-comment"># File Hand.rb, line 73</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">is_bust</span>
   <span class="ruby-keyword">self</span>.<span class="ruby-identifier">update_points</span>
   <span class="ruby-keyword">if</span> <span class="ruby-ivar">@points</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">21</span>
@@ -408,10 +404,9 @@ action.</p>
 
           
           <div class="method-source-code" id="pop_card-source">
-            <pre><span class="ruby-comment"># File Hand.rb, line 19</span>
+            <pre><span class="ruby-comment"># File Hand.rb, line 18</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">pop_card</span>
   <span class="ruby-identifier">card</span> = <span class="ruby-ivar">@hand_cards</span>.<span class="ruby-identifier">pop</span>
-  <span class="ruby-comment">#update_points</span>
 <span class="ruby-keyword">end</span></pre>
           </div><!-- pop_card-source -->
           
@@ -439,7 +434,7 @@ action.</p>
 
           
           <div class="method-source-code" id="update_points-source">
-            <pre><span class="ruby-comment"># File Hand.rb, line 35</span>
+            <pre><span class="ruby-comment"># File Hand.rb, line 40</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">update_points</span>
   <span class="ruby-ivar">@points</span> = <span class="ruby-value">0</span>
   <span class="ruby-identifier">ace_present</span> = <span class="ruby-keyword">false</span>
@@ -464,6 +459,43 @@ action.</p>
 
     
     </section><!-- public-instance-method-details -->
+  
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section section">
+      <h3 class="section-header">Public Class Methods</h3>
+
+    
+      <div id="method-c-new" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">new</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Initialize an empty hand</p>
+          
+
+          
+          <div class="method-source-code" id="new-source">
+            <pre><span class="ruby-comment"># File Hand.rb, line 6</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">initialize</span>
+  <span class="ruby-ivar">@hand_cards</span> = <span class="ruby-constant">Array</span>.<span class="ruby-identifier">new</span>
+  <span class="ruby-ivar">@points</span> = <span class="ruby-value">0</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- new-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- new-method -->
+
+    
+    </section><!-- public-class-method-details -->
   
   </section><!-- 5Buntitled-5D -->
 

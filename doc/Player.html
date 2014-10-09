@@ -72,47 +72,41 @@
     
     <li><a href="#method-c-new">::new</a>
     
+    <li><a href="#method-i-add_bet_to_hand">#add_bet_to_hand</a>
+    
     <li><a href="#method-i-add_card_to_hand">#add_card_to_hand</a>
     
-    <li><a href="#method-i-add_card_to_split_hand">#add_card_to_split_hand</a>
+    <li><a href="#method-i-add_hand">#add_hand</a>
     
     <li><a href="#method-i-add_money">#add_money</a>
     
-    <li><a href="#method-i-clear_hand">#clear_hand</a>
+    <li><a href="#method-i-add_new_hand">#add_new_hand</a>
     
-    <li><a href="#method-i-double_bet">#double_bet</a>
+    <li><a href="#method-i-can_double_down_hand">#can_double_down_hand</a>
     
-    <li><a href="#method-i-double_split_bet">#double_split_bet</a>
+    <li><a href="#method-i-can_split_hand">#can_split_hand</a>
     
-    <li><a href="#method-i-get_current_bet">#get_current_bet</a>
+    <li><a href="#method-i-clear_all_hands">#clear_all_hands</a>
     
-    <li><a href="#method-i-get_double_down">#get_double_down</a>
+    <li><a href="#method-i-double_bet_on_hand">#double_bet_on_hand</a>
     
-    <li><a href="#method-i-get_hand">#get_hand</a>
+    <li><a href="#method-i-get_all_hands">#get_all_hands</a>
     
-    <li><a href="#method-i-get_points">#get_points</a>
+    <li><a href="#method-i-get_bet_on_hand">#get_bet_on_hand</a>
     
-    <li><a href="#method-i-get_split">#get_split</a>
+    <li><a href="#method-i-get_initial_hand">#get_initial_hand</a>
     
-    <li><a href="#method-i-get_split_bet">#get_split_bet</a>
-    
-    <li><a href="#method-i-get_split_double_down">#get_split_double_down</a>
-    
-    <li><a href="#method-i-get_split_hand">#get_split_hand</a>
-    
-    <li><a href="#method-i-get_split_points">#get_split_points</a>
+    <li><a href="#method-i-get_points_on_hand">#get_points_on_hand</a>
     
     <li><a href="#method-i-is_bankrupt">#is_bankrupt</a>
     
-    <li><a href="#method-i-is_blackjack">#is_blackjack</a>
+    <li><a href="#method-i-is_blackjack_hand">#is_blackjack_hand</a>
     
-    <li><a href="#method-i-is_busted">#is_busted</a>
+    <li><a href="#method-i-is_bust_hand">#is_bust_hand</a>
     
-    <li><a href="#method-i-is_split_blackjack">#is_split_blackjack</a>
+    <li><a href="#method-i-make_initial_bet">#make_initial_bet</a>
     
-    <li><a href="#method-i-is_split_busted">#is_split_busted</a>
-    
-    <li><a href="#method-i-make_bet">#make_bet</a>
+    <li><a href="#method-i-split_hand">#split_hand</a>
     
   </ul>
 </nav>
@@ -179,22 +173,9 @@ separate classes</p>
       <h3 class="section-header">Attributes</h3>
 
       
-      <div id="attribute-i-current_bet" class="method-detail">
+      <div id="attribute-i-hands" class="method-detail">
         <div class="method-heading attribute-method-heading">
-          <span class="method-name">current_bet</span><span
-            class="attribute-access-type">[RW]</span>
-        </div>
-
-        <div class="method-description">
-        
-        
-        
-        </div>
-      </div>
-      
-      <div id="attribute-i-hand" class="method-detail">
-        <div class="method-heading attribute-method-heading">
-          <span class="method-name">hand</span><span
+          <span class="method-name">hands</span><span
             class="attribute-access-type">[RW]</span>
         </div>
 
@@ -218,19 +199,6 @@ separate classes</p>
         </div>
       </div>
       
-      <div id="attribute-i-is_split" class="method-detail">
-        <div class="method-heading attribute-method-heading">
-          <span class="method-name">is_split</span><span
-            class="attribute-access-type">[RW]</span>
-        </div>
-
-        <div class="method-description">
-        
-        
-        
-        </div>
-      </div>
-      
       <div id="attribute-i-money" class="method-detail">
         <div class="method-heading attribute-method-heading">
           <span class="method-name">money</span><span
@@ -244,22 +212,9 @@ separate classes</p>
         </div>
       </div>
       
-      <div id="attribute-i-split_bet" class="method-detail">
+      <div id="attribute-i-total_bets" class="method-detail">
         <div class="method-heading attribute-method-heading">
-          <span class="method-name">split_bet</span><span
-            class="attribute-access-type">[RW]</span>
-        </div>
-
-        <div class="method-description">
-        
-        
-        
-        </div>
-      </div>
-      
-      <div id="attribute-i-split_hand" class="method-detail">
-        <div class="method-heading attribute-method-heading">
-          <span class="method-name">split_hand</span><span
+          <span class="method-name">total_bets</span><span
             class="attribute-access-type">[RW]</span>
         </div>
 
@@ -275,54 +230,47 @@ separate classes</p>
 
     <!-- Methods -->
     
-     <section id="public-class-5Buntitled-5D-method-details" class="method-section section">
-      <h3 class="section-header">Public Class Methods</h3>
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section section">
+      <h3 class="section-header">Public Instance Methods</h3>
 
     
-      <div id="method-c-new" class="method-detail ">
+      <div id="method-i-add_bet_to_hand" class="method-detail ">
         
         <div class="method-heading">
-          <span class="method-name">new</span><span
-            class="method-args">()</span>
+          <span class="method-name">add_bet_to_hand</span><span
+            class="method-args">(hand, amount)</span>
           <span class="method-click-advice">click to toggle source</span>
         </div>
         
 
         <div class="method-description">
           
-          <p>Initialize a player with an empty hand</p>
+          <p>Adds to the bet on the hand</p>
           
 
           
-          <div class="method-source-code" id="new-source">
-            <pre><span class="ruby-comment"># File Player.rb, line 9</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier">initialize</span>
-  <span class="ruby-comment"># Initialize an empty hand</span>
-  <span class="ruby-ivar">@hand</span> = <span class="ruby-constant">PlayerHand</span>.<span class="ruby-identifier">new</span>
-  <span class="ruby-ivar">@is_split</span> = <span class="ruby-keyword">false</span>
-  <span class="ruby-ivar">@split_bet</span> = <span class="ruby-value">0</span>
+          <div class="method-source-code" id="add_bet_to_hand-source">
+            <pre><span class="ruby-comment"># File Player.rb, line 50</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">add_bet_to_hand</span>(<span class="ruby-identifier">hand</span>, <span class="ruby-identifier">amount</span>)
+  <span class="ruby-identifier">hand</span>.<span class="ruby-identifier">add_bet_amount</span>(<span class="ruby-identifier">amount</span>)
+  <span class="ruby-ivar">@total_bets</span> = <span class="ruby-ivar">@total_bets</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">amount</span>
+  <span class="ruby-ivar">@money</span> = <span class="ruby-ivar">@money</span> <span class="ruby-operator">-</span> <span class="ruby-identifier">amount</span>
 <span class="ruby-keyword">end</span></pre>
-          </div><!-- new-source -->
+          </div><!-- add_bet_to_hand-source -->
           
         </div>
 
         
 
         
-      </div><!-- new-method -->
-
-    
-    </section><!-- public-class-method-details -->
-  
-     <section id="public-instance-5Buntitled-5D-method-details" class="method-section section">
-      <h3 class="section-header">Public Instance Methods</h3>
+      </div><!-- add_bet_to_hand-method -->
 
     
       <div id="method-i-add_card_to_hand" class="method-detail ">
         
         <div class="method-heading">
           <span class="method-name">add_card_to_hand</span><span
-            class="method-args">(card)</span>
+            class="method-args">(hand, card)</span>
           <span class="method-click-advice">click to toggle source</span>
         </div>
         
@@ -334,9 +282,9 @@ separate classes</p>
 
           
           <div class="method-source-code" id="add_card_to_hand-source">
-            <pre><span class="ruby-comment"># File Player.rb, line 139</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier">add_card_to_hand</span>(<span class="ruby-identifier">card</span>)
-  <span class="ruby-ivar">@hand</span>.<span class="ruby-identifier">add_card</span>(<span class="ruby-identifier">card</span>)
+            <pre><span class="ruby-comment"># File Player.rb, line 119</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">add_card_to_hand</span>(<span class="ruby-identifier">hand</span>, <span class="ruby-identifier">card</span>)
+  <span class="ruby-identifier">hand</span>.<span class="ruby-identifier">add_card</span>(<span class="ruby-identifier">card</span>)
 <span class="ruby-keyword">end</span></pre>
           </div><!-- add_card_to_hand-source -->
           
@@ -348,34 +296,34 @@ separate classes</p>
       </div><!-- add_card_to_hand-method -->
 
     
-      <div id="method-i-add_card_to_split_hand" class="method-detail ">
+      <div id="method-i-add_hand" class="method-detail ">
         
         <div class="method-heading">
-          <span class="method-name">add_card_to_split_hand</span><span
-            class="method-args">(card)</span>
+          <span class="method-name">add_hand</span><span
+            class="method-args">(hand)</span>
           <span class="method-click-advice">click to toggle source</span>
         </div>
         
 
         <div class="method-description">
           
-          <p>Add a card to the second hand of the split</p>
+          <p>Add a new hand to the player for the current round</p>
           
 
           
-          <div class="method-source-code" id="add_card_to_split_hand-source">
-            <pre><span class="ruby-comment"># File Player.rb, line 144</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier">add_card_to_split_hand</span>(<span class="ruby-identifier">card</span>)
-  <span class="ruby-ivar">@split_hand</span>.<span class="ruby-identifier">add_card</span>(<span class="ruby-identifier">card</span>)
+          <div class="method-source-code" id="add_hand-source">
+            <pre><span class="ruby-comment"># File Player.rb, line 45</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">add_hand</span>(<span class="ruby-identifier">hand</span>)
+  <span class="ruby-ivar">@hands</span>.<span class="ruby-identifier">push</span>(<span class="ruby-identifier">hand</span>)
 <span class="ruby-keyword">end</span></pre>
-          </div><!-- add_card_to_split_hand-source -->
+          </div><!-- add_hand-source -->
           
         </div>
 
         
 
         
-      </div><!-- add_card_to_split_hand-method -->
+      </div><!-- add_hand-method -->
 
     
       <div id="method-i-add_money" class="method-detail ">
@@ -394,7 +342,7 @@ separate classes</p>
 
           
           <div class="method-source-code" id="add_money-source">
-            <pre><span class="ruby-comment"># File Player.rb, line 22</span>
+            <pre><span class="ruby-comment"># File Player.rb, line 62</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">add_money</span>(<span class="ruby-identifier">amount</span>)
   <span class="ruby-ivar">@money</span> = <span class="ruby-ivar">@money</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">amount</span>.<span class="ruby-identifier">floor</span>
 <span class="ruby-keyword">end</span></pre>
@@ -408,10 +356,110 @@ separate classes</p>
       </div><!-- add_money-method -->
 
     
-      <div id="method-i-clear_hand" class="method-detail ">
+      <div id="method-i-add_new_hand" class="method-detail ">
         
         <div class="method-heading">
-          <span class="method-name">clear_hand</span><span
+          <span class="method-name">add_new_hand</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Add a new hand to the player</p>
+          
+
+          
+          <div class="method-source-code" id="add_new_hand-source">
+            <pre><span class="ruby-comment"># File Player.rb, line 20</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">add_new_hand</span>
+  <span class="ruby-identifier">hand</span> = <span class="ruby-constant">PlayerHand</span>.<span class="ruby-identifier">new</span>
+  <span class="ruby-ivar">@hands</span>.<span class="ruby-identifier">push</span>(<span class="ruby-identifier">hand</span>)
+  <span class="ruby-keyword">return</span> <span class="ruby-identifier">hand</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- add_new_hand-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- add_new_hand-method -->
+
+    
+      <div id="method-i-can_double_down_hand" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">can_double_down_hand</span><span
+            class="method-args">(hand)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Return true if player can double down</p>
+          
+
+          
+          <div class="method-source-code" id="can_double_down_hand-source">
+            <pre><span class="ruby-comment"># File Player.rb, line 76</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">can_double_down_hand</span>(<span class="ruby-identifier">hand</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">hand</span>.<span class="ruby-identifier">valid_for_double_down</span> <span class="ruby-operator">&amp;&amp;</span> (<span class="ruby-ivar">@money</span> <span class="ruby-operator">&gt;=</span> <span class="ruby-identifier">hand</span>.<span class="ruby-identifier">get_bet_amount</span>)
+    <span class="ruby-keyword">return</span> <span class="ruby-keyword">true</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-keyword">return</span> <span class="ruby-keyword">false</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- can_double_down_hand-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- can_double_down_hand-method -->
+
+    
+      <div id="method-i-can_split_hand" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">can_split_hand</span><span
+            class="method-args">(hand)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Return true if player can split</p>
+          
+
+          
+          <div class="method-source-code" id="can_split_hand-source">
+            <pre><span class="ruby-comment"># File Player.rb, line 85</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">can_split_hand</span>(<span class="ruby-identifier">hand</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">hand</span>.<span class="ruby-identifier">valid_for_split</span> <span class="ruby-operator">&amp;&amp;</span> (<span class="ruby-ivar">@money</span> <span class="ruby-operator">&gt;=</span> <span class="ruby-identifier">hand</span>.<span class="ruby-identifier">get_bet_amount</span>)
+    <span class="ruby-keyword">return</span> <span class="ruby-keyword">true</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-keyword">return</span> <span class="ruby-keyword">false</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- can_split_hand-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- can_split_hand-method -->
+
+    
+      <div id="method-i-clear_all_hands" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">clear_all_hands</span><span
             class="method-args">()</span>
           <span class="method-click-advice">click to toggle source</span>
         </div>
@@ -423,27 +471,26 @@ separate classes</p>
           
 
           
-          <div class="method-source-code" id="clear_hand-source">
-            <pre><span class="ruby-comment"># File Player.rb, line 86</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier">clear_hand</span>
-  <span class="ruby-ivar">@hand</span>.<span class="ruby-identifier">clear_hand</span>
-  <span class="ruby-ivar">@is_split</span> = <span class="ruby-keyword">false</span>
+          <div class="method-source-code" id="clear_all_hands-source">
+            <pre><span class="ruby-comment"># File Player.rb, line 99</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">clear_all_hands</span>
+  <span class="ruby-ivar">@hands</span>.<span class="ruby-identifier">clear</span>
 <span class="ruby-keyword">end</span></pre>
-          </div><!-- clear_hand-source -->
+          </div><!-- clear_all_hands-source -->
           
         </div>
 
         
 
         
-      </div><!-- clear_hand-method -->
+      </div><!-- clear_all_hands-method -->
 
     
-      <div id="method-i-double_bet" class="method-detail ">
+      <div id="method-i-double_bet_on_hand" class="method-detail ">
         
         <div class="method-heading">
-          <span class="method-name">double_bet</span><span
-            class="method-args">()</span>
+          <span class="method-name">double_bet_on_hand</span><span
+            class="method-args">(hand)</span>
           <span class="method-click-advice">click to toggle source</span>
         </div>
         
@@ -454,26 +501,25 @@ separate classes</p>
           
 
           
-          <div class="method-source-code" id="double_bet-source">
-            <pre><span class="ruby-comment"># File Player.rb, line 127</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier">double_bet</span>
-  <span class="ruby-ivar">@money</span> = <span class="ruby-ivar">@money</span> <span class="ruby-operator">-</span> <span class="ruby-ivar">@current_bet</span>
-  <span class="ruby-ivar">@current_bet</span> = <span class="ruby-value">2</span> * <span class="ruby-ivar">@current_bet</span>
+          <div class="method-source-code" id="double_bet_on_hand-source">
+            <pre><span class="ruby-comment"># File Player.rb, line 114</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">double_bet_on_hand</span>(<span class="ruby-identifier">hand</span>)
+  <span class="ruby-identifier">add_bet_to_hand</span>(<span class="ruby-identifier">hand</span>, <span class="ruby-identifier">hand</span>.<span class="ruby-identifier">get_bet_amount</span>)
 <span class="ruby-keyword">end</span></pre>
-          </div><!-- double_bet-source -->
+          </div><!-- double_bet_on_hand-source -->
           
         </div>
 
         
 
         
-      </div><!-- double_bet-method -->
+      </div><!-- double_bet_on_hand-method -->
 
     
-      <div id="method-i-double_split_bet" class="method-detail ">
+      <div id="method-i-get_all_hands" class="method-detail ">
         
         <div class="method-heading">
-          <span class="method-name">double_split_bet</span><span
+          <span class="method-name">get_all_hands</span><span
             class="method-args">()</span>
           <span class="method-click-advice">click to toggle source</span>
         </div>
@@ -481,30 +527,59 @@ separate classes</p>
 
         <div class="method-description">
           
-          <p>Double the value of bet on the second hand of the split</p>
+          <p>Returns the hands</p>
           
 
           
-          <div class="method-source-code" id="double_split_bet-source">
-            <pre><span class="ruby-comment"># File Player.rb, line 133</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier">double_split_bet</span>
-  <span class="ruby-ivar">@money</span> = <span class="ruby-ivar">@money</span> <span class="ruby-operator">-</span> <span class="ruby-ivar">@split_bet</span>
-  <span class="ruby-ivar">@split_bet</span> = <span class="ruby-value">2</span> * <span class="ruby-ivar">@split_bet</span>
+          <div class="method-source-code" id="get_all_hands-source">
+            <pre><span class="ruby-comment"># File Player.rb, line 124</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">get_all_hands</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-ivar">@hands</span>
 <span class="ruby-keyword">end</span></pre>
-          </div><!-- double_split_bet-source -->
+          </div><!-- get_all_hands-source -->
           
         </div>
 
         
 
         
-      </div><!-- double_split_bet-method -->
+      </div><!-- get_all_hands-method -->
 
     
-      <div id="method-i-get_current_bet" class="method-detail ">
+      <div id="method-i-get_bet_on_hand" class="method-detail ">
         
         <div class="method-heading">
-          <span class="method-name">get_current_bet</span><span
+          <span class="method-name">get_bet_on_hand</span><span
+            class="method-args">(hand)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Get bet amount on the hand</p>
+          
+
+          
+          <div class="method-source-code" id="get_bet_on_hand-source">
+            <pre><span class="ruby-comment"># File Player.rb, line 57</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">get_bet_on_hand</span>(<span class="ruby-identifier">hand</span>)
+  <span class="ruby-keyword">return</span> <span class="ruby-identifier">hand</span>.<span class="ruby-identifier">get_bet_amount</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- get_bet_on_hand-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- get_bet_on_hand-method -->
+
+    
+      <div id="method-i-get_initial_hand" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">get_initial_hand</span><span
             class="method-args">()</span>
           <span class="method-click-advice">click to toggle source</span>
         </div>
@@ -512,94 +587,30 @@ separate classes</p>
 
         <div class="method-description">
           
-          <p>Get the value of current bet</p>
+          <p>Get initial hand</p>
           
 
           
-          <div class="method-source-code" id="get_current_bet-source">
-            <pre><span class="ruby-comment"># File Player.rb, line 17</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier">get_current_bet</span>
-  <span class="ruby-keyword">return</span> <span class="ruby-ivar">@current_bet</span>
+          <div class="method-source-code" id="get_initial_hand-source">
+            <pre><span class="ruby-comment"># File Player.rb, line 27</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">get_initial_hand</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-ivar">@hands</span>[<span class="ruby-value">0</span>]
 <span class="ruby-keyword">end</span></pre>
-          </div><!-- get_current_bet-source -->
+          </div><!-- get_initial_hand-source -->
           
         </div>
 
         
 
         
-      </div><!-- get_current_bet-method -->
+      </div><!-- get_initial_hand-method -->
 
     
-      <div id="method-i-get_double_down" class="method-detail ">
+      <div id="method-i-get_points_on_hand" class="method-detail ">
         
         <div class="method-heading">
-          <span class="method-name">get_double_down</span><span
-            class="method-args">()</span>
-          <span class="method-click-advice">click to toggle source</span>
-        </div>
-        
-
-        <div class="method-description">
-          
-          <p>Return true if player can double down</p>
-          
-
-          
-          <div class="method-source-code" id="get_double_down-source">
-            <pre><span class="ruby-comment"># File Player.rb, line 41</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier">get_double_down</span>
-  <span class="ruby-keyword">if</span> <span class="ruby-ivar">@hand</span>.<span class="ruby-identifier">get_double_down</span> <span class="ruby-operator">&amp;&amp;</span> (<span class="ruby-ivar">@money</span> <span class="ruby-operator">&gt;=</span> <span class="ruby-identifier">current_bet</span>)
-    <span class="ruby-keyword">return</span> <span class="ruby-keyword">true</span>
-  <span class="ruby-keyword">else</span>
-    <span class="ruby-keyword">return</span> <span class="ruby-keyword">false</span>
-  <span class="ruby-keyword">end</span>
-<span class="ruby-keyword">end</span></pre>
-          </div><!-- get_double_down-source -->
-          
-        </div>
-
-        
-
-        
-      </div><!-- get_double_down-method -->
-
-    
-      <div id="method-i-get_hand" class="method-detail ">
-        
-        <div class="method-heading">
-          <span class="method-name">get_hand</span><span
-            class="method-args">()</span>
-          <span class="method-click-advice">click to toggle source</span>
-        </div>
-        
-
-        <div class="method-description">
-          
-          <p>Returns the hand</p>
-          
-
-          
-          <div class="method-source-code" id="get_hand-source">
-            <pre><span class="ruby-comment"># File Player.rb, line 149</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier">get_hand</span>
-  <span class="ruby-keyword">return</span> <span class="ruby-ivar">@hand</span>
-<span class="ruby-keyword">end</span></pre>
-          </div><!-- get_hand-source -->
-          
-        </div>
-
-        
-
-        
-      </div><!-- get_hand-method -->
-
-    
-      <div id="method-i-get_points" class="method-detail ">
-        
-        <div class="method-heading">
-          <span class="method-name">get_points</span><span
-            class="method-args">()</span>
+          <span class="method-name">get_points_on_hand</span><span
+            class="method-args">(hand)</span>
           <span class="method-click-advice">click to toggle source</span>
         </div>
         
@@ -610,176 +621,19 @@ separate classes</p>
           
 
           
-          <div class="method-source-code" id="get_points-source">
-            <pre><span class="ruby-comment"># File Player.rb, line 76</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier">get_points</span>
-  <span class="ruby-keyword">return</span> <span class="ruby-ivar">@hand</span>.<span class="ruby-identifier">get_points</span>
+          <div class="method-source-code" id="get_points_on_hand-source">
+            <pre><span class="ruby-comment"># File Player.rb, line 94</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">get_points_on_hand</span>(<span class="ruby-identifier">hand</span>)
+  <span class="ruby-keyword">return</span> <span class="ruby-identifier">hand</span>.<span class="ruby-identifier">get_points</span>
 <span class="ruby-keyword">end</span></pre>
-          </div><!-- get_points-source -->
+          </div><!-- get_points_on_hand-source -->
           
         </div>
 
         
 
         
-      </div><!-- get_points-method -->
-
-    
-      <div id="method-i-get_split" class="method-detail ">
-        
-        <div class="method-heading">
-          <span class="method-name">get_split</span><span
-            class="method-args">()</span>
-          <span class="method-click-advice">click to toggle source</span>
-        </div>
-        
-
-        <div class="method-description">
-          
-          <p>Return true if player can split the hand</p>
-          
-
-          
-          <div class="method-source-code" id="get_split-source">
-            <pre><span class="ruby-comment"># File Player.rb, line 68</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier">get_split</span>
-  <span class="ruby-keyword">if</span> <span class="ruby-ivar">@is_split</span>
-    <span class="ruby-keyword">return</span> <span class="ruby-keyword">false</span>
-  <span class="ruby-keyword">end</span>
-  <span class="ruby-keyword">return</span> <span class="ruby-ivar">@hand</span>.<span class="ruby-identifier">get_split</span> <span class="ruby-operator">&amp;&amp;</span> (<span class="ruby-ivar">@money</span> <span class="ruby-operator">&gt;=</span> <span class="ruby-identifier">current_bet</span>)
-<span class="ruby-keyword">end</span></pre>
-          </div><!-- get_split-source -->
-          
-        </div>
-
-        
-
-        
-      </div><!-- get_split-method -->
-
-    
-      <div id="method-i-get_split_bet" class="method-detail ">
-        
-        <div class="method-heading">
-          <span class="method-name">get_split_bet</span><span
-            class="method-args">()</span>
-          <span class="method-click-advice">click to toggle source</span>
-        </div>
-        
-
-        <div class="method-description">
-          
-          <p>Get the value of the bet on the second hand of the split</p>
-          
-
-          
-          <div class="method-source-code" id="get_split_bet-source">
-            <pre><span class="ruby-comment"># File Player.rb, line 36</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier">get_split_bet</span>
-  <span class="ruby-keyword">return</span> <span class="ruby-ivar">@split_bet</span>
-<span class="ruby-keyword">end</span></pre>
-          </div><!-- get_split_bet-source -->
-          
-        </div>
-
-        
-
-        
-      </div><!-- get_split_bet-method -->
-
-    
-      <div id="method-i-get_split_double_down" class="method-detail ">
-        
-        <div class="method-heading">
-          <span class="method-name">get_split_double_down</span><span
-            class="method-args">()</span>
-          <span class="method-click-advice">click to toggle source</span>
-        </div>
-        
-
-        <div class="method-description">
-          
-          <p>Return true if player can double down on second hand of the split</p>
-          
-
-          
-          <div class="method-source-code" id="get_split_double_down-source">
-            <pre><span class="ruby-comment"># File Player.rb, line 50</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier">get_split_double_down</span>
-  <span class="ruby-keyword">if</span> <span class="ruby-ivar">@split_hand</span>.<span class="ruby-identifier">get_double_down</span> <span class="ruby-operator">&amp;&amp;</span> (<span class="ruby-ivar">@money</span> <span class="ruby-operator">&gt;=</span> <span class="ruby-identifier">current_bet</span>)
-    <span class="ruby-keyword">return</span> <span class="ruby-keyword">true</span>
-  <span class="ruby-keyword">else</span>
-    <span class="ruby-keyword">return</span> <span class="ruby-keyword">false</span>
-  <span class="ruby-keyword">end</span>
-<span class="ruby-keyword">end</span></pre>
-          </div><!-- get_split_double_down-source -->
-          
-        </div>
-
-        
-
-        
-      </div><!-- get_split_double_down-method -->
-
-    
-      <div id="method-i-get_split_hand" class="method-detail ">
-        
-        <div class="method-heading">
-          <span class="method-name">get_split_hand</span><span
-            class="method-args">()</span>
-          <span class="method-click-advice">click to toggle source</span>
-        </div>
-        
-
-        <div class="method-description">
-          
-          <p>Returns the second hand of the split</p>
-          
-
-          
-          <div class="method-source-code" id="get_split_hand-source">
-            <pre><span class="ruby-comment"># File Player.rb, line 154</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier">get_split_hand</span>
-  <span class="ruby-keyword">return</span> <span class="ruby-ivar">@split_hand</span>
-<span class="ruby-keyword">end</span></pre>
-          </div><!-- get_split_hand-source -->
-          
-        </div>
-
-        
-
-        
-      </div><!-- get_split_hand-method -->
-
-    
-      <div id="method-i-get_split_points" class="method-detail ">
-        
-        <div class="method-heading">
-          <span class="method-name">get_split_points</span><span
-            class="method-args">()</span>
-          <span class="method-click-advice">click to toggle source</span>
-        </div>
-        
-
-        <div class="method-description">
-          
-          <p>Return points of the second hand of the split</p>
-          
-
-          
-          <div class="method-source-code" id="get_split_points-source">
-            <pre><span class="ruby-comment"># File Player.rb, line 81</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier">get_split_points</span>
-  <span class="ruby-keyword">return</span> <span class="ruby-ivar">@split_hand</span>.<span class="ruby-identifier">get_points</span>
-<span class="ruby-keyword">end</span></pre>
-          </div><!-- get_split_points-source -->
-          
-        </div>
-
-        
-
-        
-      </div><!-- get_split_points-method -->
+      </div><!-- get_points_on_hand-method -->
 
     
       <div id="method-i-is_bankrupt" class="method-detail ">
@@ -798,9 +652,9 @@ separate classes</p>
 
           
           <div class="method-source-code" id="is_bankrupt-source">
-            <pre><span class="ruby-comment"># File Player.rb, line 27</span>
+            <pre><span class="ruby-comment"># File Player.rb, line 67</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">is_bankrupt</span>
-  <span class="ruby-keyword">if</span> (<span class="ruby-ivar">@money</span> <span class="ruby-operator">==</span> <span class="ruby-value">0</span>) <span class="ruby-operator">&amp;&amp;</span> (<span class="ruby-ivar">@current_bet</span> <span class="ruby-operator">==</span> <span class="ruby-value">0</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-ivar">@money</span> <span class="ruby-operator">==</span> <span class="ruby-value">0</span>
     <span class="ruby-keyword">return</span> <span class="ruby-keyword">true</span>
   <span class="ruby-keyword">else</span>
     <span class="ruby-keyword">return</span> <span class="ruby-keyword">false</span>
@@ -816,11 +670,11 @@ separate classes</p>
       </div><!-- is_bankrupt-method -->
 
     
-      <div id="method-i-is_blackjack" class="method-detail ">
+      <div id="method-i-is_blackjack_hand" class="method-detail ">
         
         <div class="method-heading">
-          <span class="method-name">is_blackjack</span><span
-            class="method-args">()</span>
+          <span class="method-name">is_blackjack_hand</span><span
+            class="method-args">(hand)</span>
           <span class="method-click-advice">click to toggle source</span>
         </div>
         
@@ -831,26 +685,26 @@ separate classes</p>
           
 
           
-          <div class="method-source-code" id="is_blackjack-source">
-            <pre><span class="ruby-comment"># File Player.rb, line 97</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier">is_blackjack</span>
-  <span class="ruby-keyword">return</span> <span class="ruby-ivar">@hand</span>.<span class="ruby-identifier">is_blackjack</span>
+          <div class="method-source-code" id="is_blackjack_hand-source">
+            <pre><span class="ruby-comment"># File Player.rb, line 109</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">is_blackjack_hand</span>(<span class="ruby-identifier">hand</span>)
+  <span class="ruby-keyword">return</span> <span class="ruby-identifier">hand</span>.<span class="ruby-identifier">is_blackjack</span>
 <span class="ruby-keyword">end</span></pre>
-          </div><!-- is_blackjack-source -->
+          </div><!-- is_blackjack_hand-source -->
           
         </div>
 
         
 
         
-      </div><!-- is_blackjack-method -->
+      </div><!-- is_blackjack_hand-method -->
 
     
-      <div id="method-i-is_busted" class="method-detail ">
+      <div id="method-i-is_bust_hand" class="method-detail ">
         
         <div class="method-heading">
-          <span class="method-name">is_busted</span><span
-            class="method-args">()</span>
+          <span class="method-name">is_bust_hand</span><span
+            class="method-args">(hand)</span>
           <span class="method-click-advice">click to toggle source</span>
         </div>
         
@@ -861,122 +715,135 @@ separate classes</p>
           
 
           
-          <div class="method-source-code" id="is_busted-source">
-            <pre><span class="ruby-comment"># File Player.rb, line 92</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier">is_busted</span>
-  <span class="ruby-keyword">return</span> <span class="ruby-ivar">@hand</span>.<span class="ruby-identifier">is_bust</span>
+          <div class="method-source-code" id="is_bust_hand-source">
+            <pre><span class="ruby-comment"># File Player.rb, line 104</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">is_bust_hand</span>(<span class="ruby-identifier">hand</span>)
+  <span class="ruby-keyword">return</span> <span class="ruby-identifier">hand</span>.<span class="ruby-identifier">is_bust</span>
 <span class="ruby-keyword">end</span></pre>
-          </div><!-- is_busted-source -->
+          </div><!-- is_bust_hand-source -->
           
         </div>
 
         
 
         
-      </div><!-- is_busted-method -->
+      </div><!-- is_bust_hand-method -->
 
     
-      <div id="method-i-is_split_blackjack" class="method-detail ">
+      <div id="method-i-make_initial_bet" class="method-detail ">
         
         <div class="method-heading">
-          <span class="method-name">is_split_blackjack</span><span
-            class="method-args">()</span>
+          <span class="method-name">make_initial_bet</span><span
+            class="method-args">(amount)</span>
           <span class="method-click-advice">click to toggle source</span>
         </div>
         
 
         <div class="method-description">
           
-          <p>Return true if second hand of the split is a blackjack</p>
+          <p>Make the initial bet</p>
           
 
           
-          <div class="method-source-code" id="is_split_blackjack-source">
-            <pre><span class="ruby-comment"># File Player.rb, line 107</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier">is_split_blackjack</span>
-  <span class="ruby-keyword">return</span> <span class="ruby-ivar">@split_hand</span>.<span class="ruby-identifier">is_blackjack</span>
-<span class="ruby-keyword">end</span></pre>
-          </div><!-- is_split_blackjack-source -->
-          
-        </div>
-
-        
-
-        
-      </div><!-- is_split_blackjack-method -->
-
-    
-      <div id="method-i-is_split_busted" class="method-detail ">
-        
-        <div class="method-heading">
-          <span class="method-name">is_split_busted</span><span
-            class="method-args">()</span>
-          <span class="method-click-advice">click to toggle source</span>
-        </div>
-        
-
-        <div class="method-description">
-          
-          <p>Return true if second hand of the split is a bust</p>
-          
-
-          
-          <div class="method-source-code" id="is_split_busted-source">
-            <pre><span class="ruby-comment"># File Player.rb, line 102</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier">is_split_busted</span>
-  <span class="ruby-keyword">return</span> <span class="ruby-ivar">@split_hand</span>.<span class="ruby-identifier">is_bust</span>
-<span class="ruby-keyword">end</span></pre>
-          </div><!-- is_split_busted-source -->
-          
-        </div>
-
-        
-
-        
-      </div><!-- is_split_busted-method -->
-
-    
-      <div id="method-i-make_bet" class="method-detail ">
-        
-        <div class="method-heading">
-          <span class="method-name">make_bet</span><span
-            class="method-args">(bet_value)</span>
-          <span class="method-click-advice">click to toggle source</span>
-        </div>
-        
-
-        <div class="method-description">
-          
-          <p>Make a bet of the given value</p>
-          
-
-          
-          <div class="method-source-code" id="make_bet-source">
-            <pre><span class="ruby-comment"># File Player.rb, line 112</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier">make_bet</span>(<span class="ruby-identifier">bet_value</span>)
-  <span class="ruby-keyword">if</span> <span class="ruby-identifier">bet_value</span> <span class="ruby-operator">&gt;</span> <span class="ruby-ivar">@money</span>
+          <div class="method-source-code" id="make_initial_bet-source">
+            <pre><span class="ruby-comment"># File Player.rb, line 32</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">make_initial_bet</span>(<span class="ruby-identifier">amount</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">amount</span> <span class="ruby-operator">&gt;</span> <span class="ruby-identifier">money</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">amount</span> <span class="ruby-operator">&lt;=</span> <span class="ruby-value">0</span>
     <span class="ruby-keyword">return</span> <span class="ruby-keyword">false</span>
   <span class="ruby-keyword">end</span>
   
-  <span class="ruby-keyword">if</span> <span class="ruby-identifier">bet_value</span> <span class="ruby-operator">&lt;=</span> <span class="ruby-value">0</span>
-    <span class="ruby-keyword">return</span> <span class="ruby-keyword">false</span>
-  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">add_new_hand</span>
+  <span class="ruby-identifier">hand</span> = <span class="ruby-identifier">get_initial_hand</span>
+  <span class="ruby-identifier">add_bet_to_hand</span>(<span class="ruby-identifier">hand</span>, <span class="ruby-identifier">amount</span>)
   
-  <span class="ruby-ivar">@current_bet</span> = <span class="ruby-identifier">bet_value</span>
-  <span class="ruby-ivar">@money</span> = <span class="ruby-ivar">@money</span> <span class="ruby-operator">-</span> <span class="ruby-ivar">@current_bet</span>
   <span class="ruby-keyword">return</span> <span class="ruby-keyword">true</span>
 <span class="ruby-keyword">end</span></pre>
-          </div><!-- make_bet-source -->
+          </div><!-- make_initial_bet-source -->
           
         </div>
 
         
 
         
-      </div><!-- make_bet-method -->
+      </div><!-- make_initial_bet-method -->
+
+    
+      <div id="method-i-split_hand" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">split_hand</span><span
+            class="method-args">(hand)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Split hand</p>
+          
+
+          
+          <div class="method-source-code" id="split_hand-source">
+            <pre><span class="ruby-comment"># File Player.rb, line 129</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">split_hand</span>(<span class="ruby-identifier">hand</span>)
+  <span class="ruby-identifier">new_hand</span> = <span class="ruby-constant">PlayerHand</span>.<span class="ruby-identifier">new</span>
+  <span class="ruby-identifier">new_hand</span>.<span class="ruby-identifier">add_card</span>(<span class="ruby-identifier">hand</span>.<span class="ruby-identifier">pop_card</span>)
+  <span class="ruby-identifier">add_bet_to_hand</span>(<span class="ruby-identifier">new_hand</span>, <span class="ruby-identifier">hand</span>.<span class="ruby-identifier">get_bet_amount</span>)
+  <span class="ruby-identifier">add_hand</span>(<span class="ruby-identifier">new_hand</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- split_hand-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- split_hand-method -->
 
     
     </section><!-- public-instance-method-details -->
+  
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section section">
+      <h3 class="section-header">Public Class Methods</h3>
+
+    
+      <div id="method-c-new" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">new</span><span
+            class="method-args">(player_id)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Initialize a player with an empty hand</p>
+          
+
+          
+          <div class="method-source-code" id="new-source">
+            <pre><span class="ruby-comment"># File Player.rb, line 9</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">player_id</span>)
+  <span class="ruby-ivar">@id</span> = <span class="ruby-identifier">player_id</span>
+  
+  <span class="ruby-comment"># Initialize an empty hands array</span>
+  <span class="ruby-ivar">@hands</span> = <span class="ruby-constant">Array</span>.<span class="ruby-identifier">new</span>
+  
+  <span class="ruby-ivar">@money</span> = <span class="ruby-value">1000</span>
+  <span class="ruby-ivar">@total_bets</span> = <span class="ruby-value">0</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- new-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- new-method -->
+
+    
+    </section><!-- public-class-method-details -->
   
   </section><!-- 5Buntitled-5D -->
 
