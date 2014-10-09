@@ -16,7 +16,7 @@ class Dealer
   end
   
   # Returns true if dealer's hand is a bust
-  def is_busted
+  def is_bust
     return @hand.is_bust
   end
   

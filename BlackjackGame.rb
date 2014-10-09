@@ -27,9 +27,7 @@ class BlackjackGame
     
     # initialize all players
     for i in 1..@player_count
-      player = Player.new
-      player.id = i
-      player.money = 1000
+      player = Player.new(i)
       @players.push(player)
     end
     
@@ -75,13 +73,37 @@ class BlackjackGame
     start_round
   end
   
+  # Evaluates all hands of all players
+  def evaluate_all_hands
+    @players.each{ |player|
+       self.evaluate_player_hands(player)
+    }
+  end
+  
+  # Evaluate all hands of a player
+  def evaluate_player_hands(player)
+    hands = player.get_all_hands
+    hands.each { |hand|
+      compare_with_dealer(player, hand)
+    }
+  end
+  
   # Iterates through all the players, executing their plays
   def all_play
     @players.each{ |player|
-      if !player.is_bankrupt
-        @game_io.print_separator
-        self.play(player)
+      @game_io.print_separator
+      self.play_all_hands(player)
+    }
+  end
+  
+  # Play all hands
+  def play_all_hands(player)
+    player_hands = player.get_all_hands
+    player_hands.each_with_index { |hand, index|
+      if index > 0
+        @game_io.print_split_hand_msg
       end
+      play(player, hand)
     }
   end
   
@@ -118,32 +140,32 @@ class BlackjackGame
   # Clear the hands of all players and th dealer
   def clear_hands
     @players.each{ |player|
-      player.clear_hand
+      player.clear_all_hands
     }
     @dealer.clear_hand
   end
   
   # Dealer plays once all players have completed their plays
   def dealers_play
-    @game_io.print_dealers_hand(dealer)
+    @game_io.print_dealers_hand(@dealer)
     
-    if dealer.is_blackjack
+    if @dealer.is_blackjack
       @game_io.print_msg('dealer_blackjack_1')
       return
     end
     
-    if dealer.get_points == 21
+    if @dealer.get_points == 21
       return
     end
     
-    if dealer.get_points < 17
-      hit(dealer)
-      @game_io.print_dealers_hand(dealer)
+    if @dealer.get_points < 17
+      hit_dealer
+      @game_io.print_dealers_hand(@dealer)
     else
       return
     end
     
-    if dealer.is_busted
+    if @dealer.is_bust
       @game_io.print_msg('dealer_busted')
     else
       self.dealers_play
@@ -153,25 +175,16 @@ class BlackjackGame
   # Players place their respective bets
   def players_place_bets
     @players.each { |player|
-      if !player.is_bankrupt
-        valid_bet = false
-        until valid_bet do
-          @game_io.print_player(player)
-          bet_value = @game_io.input_bet_value
-          valid_bet = player.make_bet(bet_value)
-          if !valid_bet
-            @game_io.print_msg("invalid_bet")
-          end
+      valid_bet = false
+      until valid_bet do
+        @game_io.print_player(player)
+        bet_value = @game_io.input_bet_value
+        valid_bet = player.make_initial_bet(bet_value)
+        if !valid_bet
+          @game_io.print_msg("invalid_bet")
         end
-        @game_io.print_separator
       end
-    }
-  end
-  
-  # Compare hands of all players with the dealer
-  def evaluate_all_hands
-    @players.each { |player|
-      compare_hands(player)
+      @game_io.print_separator
     }
   end
   
@@ -181,78 +194,49 @@ class BlackjackGame
   end
   
   # Compares the hand of the player with that of the dealer
-  def compare_hands(player)
-    if player.is_split
-      @game_io.print_split_separator_1
-    end
-    @game_io.print_vs_msg(player, dealer)
-    if player.is_busted
-      @game_io.print_msg('player_busted')
-    elsif @dealer.is_busted && !player.is_blackjack
-      pay_player(player, 2 * player.current_bet)
-      @game_io.print_msg('dealer_busted')
-    elsif @dealer.is_busted && player.is_blackjack
-      pay_player(player, 2.5 * player.current_bet)
-      @game_io.print_msg('player_blackjack')
-    elsif player.is_blackjack && @dealer.is_blackjack
-      pay_player(player, player.current_bet) #return bet
-      @game_io.print_msg('blackjack_tie')
-    elsif !(player.is_blackjack) && @dealer.is_blackjack
-      @game_io.print_msg('dealer_blackjack')
-    elsif player.is_blackjack && !(@dealer.is_blackjack)
-      pay_player(player, 2.5 * player.current_bet)
-      @game_io.print_msg('player_blackjack')
-    elsif player.get_points > @dealer.get_points
-      pay_player(player, 2 * player.current_bet)
-      @game_io.print_msg('player_wins')
-    elsif player.get_points == @dealer.get_points
-      pay_player(player, player.current_bet)
-      @game_io.print_msg('tie')
-    elsif player.get_points < @dealer.get_points
-      @game_io.print_msg('dealer_wins')
-    end
-    player.current_bet = 0
-    @game_io.print_player(player)
+  def compare_with_dealer(player, hand)
     
-    # If the player had a split, also compare the other hand
-    if player.is_split
-      compare_split_hand(player)
-    else
-      @game_io.print_separator
-    end
-  end
-  
-  # Compare player's second hand with that of the dealer, in case of a split
-  def compare_split_hand(player)
-    @game_io.print_split_vs_msg(player, dealer)
-    if player.is_split_busted
+    player_blackjack = hand.is_blackjack
+    player_bust = hand.is_bust
+    player_points = hand.get_points
+    
+    dealer_blackjack = @dealer.is_blackjack
+    dealer_bust = @dealer.is_bust
+    dealer_points = dealer.get_points
+    
+    bet = hand.get_bet_amount
+    
+    @game_io.print_vs_msg(player, hand, @dealer)
+    
+    if player_bust
       @game_io.print_msg('player_busted')
-    elsif @dealer.is_busted && !player.is_split_blackjack
-      pay_player(player, 2 * player.split_bet)
+    elsif dealer_bust && !player_bust && !player_blackjack
+      pay_player(player, 2 * bet)
       @game_io.print_msg('dealer_busted')
-    elsif @dealer.is_busted && player.is_split_blackjack
-      pay_player(player, 2.5 * player.split_bet)
+    elsif dealer_bust && player_blackjack
+      pay_player(player, 2.5 * hand.get_bet_amount)
       @game_io.print_msg('player_blackjack')
-    elsif player.is_split_blackjack && @dealer.is_blackjack
-      pay_player(player, player.split_bet) #return bet
+    elsif player_blackjack && dealer_blackjack
+      pay_player(player, bet) #return bet
       @game_io.print_msg('blackjack_tie')
-    elsif !(player.is_split_blackjack) && @dealer.is_blackjack
+    elsif !player_blackjack && dealer_blackjack
       @game_io.print_msg('dealer_blackjack')
-    elsif player.is_split_blackjack && !(@dealer.is_blackjack)
-      pay_player(player, 2.5 * player.split_bet)
+    elsif player_blackjack && !dealer_blackjack
+      pay_player(player, 2.5 * bet)
       @game_io.print_msg('player_blackjack')
-    elsif player.get_split_points > @dealer.get_points
-      pay_player(player, 2 * player.split_bet)
+    elsif player_points > dealer_points
+      pay_player(player, 2 * bet)
       @game_io.print_msg('player_wins')
-    elsif player.get_split_points == @dealer.get_points
-      pay_player(player, player.split_bet)
+    elsif player_points == dealer_points
+      pay_player(player, bet)
       @game_io.print_msg('tie')
-    elsif player.get_split_points < @dealer.get_points
+    elsif player_points < dealer_points
       @game_io.print_msg('dealer_wins')
     end
-    player.split_bet = 0
+
     @game_io.print_player(player)
     @game_io.print_separator
+    
   end
   
   # Deal the cards to all players and the dealer
@@ -260,108 +244,84 @@ class BlackjackGame
     @game_io.print_deal_cards
     for i in 1..2
       @players.each { |player|
-        player.add_card_to_hand(@shoe.retrieve_card)
+        hand = player.get_initial_hand
+        player.add_card_to_hand(hand, @shoe.retrieve_card)
       }
       @dealer.add_card_to_hand(@shoe.retrieve_card)
     end
     @game_io.print_all_hands(@players)
+    @game_io.print_dealers_partial_hand(dealer)
   end
   
   # Executed when player calls a hit
-  def hit(player)
+  def hit(player, hand)
     card = @shoe.retrieve_card
-    player.add_card_to_hand(card)
+    player.add_card_to_hand(hand, card)
   end
   
-  # Executed when th player calls a hit on the second hand of a split
-  def hit_split_hand(player)
+  def hit_dealer
     card = @shoe.retrieve_card
-    player.add_card_to_split_hand(card)
+    @dealer.add_card_to_hand(card)
   end
   
-  # Splits the player's hand
-  def split(player)
-    @game_io.print_split_separator_1
-    player.split_hand
-    hit(player)
-    hit_split_hand(player)
-    play(player)
-    @game_io.print_split_separator_2
-    play_split(player)
+  # Double down on hand
+  def double_down(player, hand)
+    player.double_bet_on_hand(hand)
+    hit(player, hand)
   end
   
-  # Play the second hand of the split
-  def play_split(player)
-    @game_io.print_split_hand(player)
-    
-    if player.is_split_blackjack
-      @game_io.print_blackjack_msg(player)
-      return
-    end
-    
-    if player.get_split_points == 21
-      return
-    end
-    
-    # Get the action command for hit/stand/double-down
-    action = @game_io.get_command(player.get_split_double_down, player.get_split)
-    
-    if action == "h"
-      hit_split_hand(player)
-    elsif action == "d"
-      player.double_split_bet
-      hit_split_hand(player)
-    elsif action == "x"
-      split(player)
-    else
-      return
-    end
-    
-    if player.is_split_busted
-      @game_io.print_split_hand(player)
-      @game_io.print_busted_msg(player)
-    elsif action == "d"
-      @game_io.print_split_hand(player)
-    else
-      self.play_split(player)
-    end
+  # Split player's hand
+  def split(player, hand)
+    player.split_hand(hand)
   end
   
   # Player plays the hand according this method
-  def play(player)
-    @game_io.print_hand(player)
+  def play(player, hand)
+    @game_io.print_hand(player, hand)
     
-    if player.is_blackjack
+    if hand.hand_cards.size == 1
+      hit(player, hand)
+      play(player, hand)
+      return
+    end
+    
+    if player.is_blackjack_hand(hand)
       @game_io.print_blackjack_msg(player)
       return
     end
     
-    if player.get_points == 21
+    if player.is_bust_hand(hand)
+      @game_io.print_busted_msg(player)
+      return
+    end
+    
+    if hand.get_points == 21
+      @game_io.print_21_msg(player)
       return
     end
     
     # Get the action command for hit/stand/split/double-down
-    action = @game_io.get_command(player.get_double_down, player.get_split)
+    action = @game_io.get_command(player.can_double_down_hand(hand), player.can_split_hand(hand))
     
     if action == "h"
-      hit(player)
+      hit(player, hand)
+      play(player, hand)
     elsif action == "d"
-      player.double_bet
-      hit(player)
+      double_down(player, hand)
+      @game_io.print_hand(player, hand)
+      if player.is_bust_hand(hand)
+        @game_io.print_busted_msg(player)
+      end
+      return
     elsif action == "x"
-      split(player)
+      # split the hand
+      split(player, hand)
+      # replay this hand
+      play(player, hand) 
+    # stand
+    else 
+      @game_io.print_hand(player, hand)
       return
-    else
-      return
-    end
-    
-    if player.is_busted
-      @game_io.print_hand(player)
-      @game_io.print_busted_msg(player)
-    elsif action == "d"
-      @game_io.print_hand(player)
-    else
-      self.play(player)
     end
   end
 

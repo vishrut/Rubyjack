@@ -11,24 +11,29 @@ class Hand
   # Add a card to the hand
   def add_card(card)
     @hand_cards.push(card)
-    update_points
   end
   
   # Remove the last card from the hand and return it. 
   # Used for the split action.
   def pop_card
     card = @hand_cards.pop
-    #update_points
   end
   
   # Return total points of the hand
   def get_points
+    update_points
     return @points
   end
   
   # Return all the cards in the hand
   def get_hand_cards
     return @hand_cards
+  end
+  
+  # Clear all card from the hand, reset the points
+  def clear_hand
+    @hand_cards.clear
+    @points = 0
   end
   
   # Update the value of total points

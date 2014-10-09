@@ -3,19 +3,59 @@ require 'Card.rb'
 
 # Player class represents a player. Note that Dealer and Player are separate classes
 class Player
-  attr_accessor :id, :money, :current_bet, :hand, :is_split, :split_hand, :split_bet
+  attr_accessor :id, :money, :hands, :total_bets
   
   # Initialize a player with an empty hand
-  def initialize
-    # Initialize an empty hand
-    @hand = PlayerHand.new
-    @is_split = false
-    @split_bet = 0
+  def initialize(player_id)
+    @id = player_id
+    
+    # Initialize an empty hands array
+    @hands = Array.new
+    
+    @money = 1000
+    @total_bets = 0
   end
   
-  # Get the value of current bet
-  def get_current_bet
-    return @current_bet
+  # Add a new hand to the player
+  def add_new_hand
+    hand = PlayerHand.new
+    @hands.push(hand)
+    return hand
+  end
+  
+  # Get initial hand
+  def get_initial_hand
+    return @hands[0]
+  end
+  
+  # Make the initial bet
+  def make_initial_bet(amount)
+    if amount > money || amount <= 0
+      return false
+    end
+    
+    add_new_hand
+    hand = get_initial_hand
+    add_bet_to_hand(hand, amount)
+    
+    return true
+  end
+  
+  # Add a new hand to the player for the current round
+  def add_hand(hand)
+    @hands.push(hand)
+  end
+  
+  # Adds to the bet on the hand
+  def add_bet_to_hand(hand, amount)
+    hand.add_bet_amount(amount)
+    @total_bets = @total_bets + amount
+    @money = @money - amount
+  end
+  
+  # Get bet amount on the hand
+  def get_bet_on_hand(hand)
+    return hand.get_bet_amount
   end
   
   # Add the given amount to the players money
@@ -25,133 +65,71 @@ class Player
   
   # Return true when player is bankrupt
   def is_bankrupt
-    if (@money == 0) && (@current_bet == 0)
+    if @money == 0
       return true
     else
       return false
     end
-  end
-  
-  # Get the value of the bet on the second hand of the split
-  def get_split_bet
-    return @split_bet
   end
   
   # Return true if player can double down
-  def get_double_down
-    if @hand.get_double_down && (@money >= current_bet)
+  def can_double_down_hand(hand)
+    if hand.valid_for_double_down && (@money >= hand.get_bet_amount)
       return true
     else
       return false
     end
   end
   
-  # Return true if player can double down on second hand of the split
-  def get_split_double_down
-    if @split_hand.get_double_down && (@money >= current_bet)
+  # Return true if player can split
+  def can_split_hand(hand)
+    if hand.valid_for_split && (@money >= hand.get_bet_amount)
       return true
     else
       return false
     end
-  end
-  
-  # Split the hand into two hands
-  def split_hand
-    @is_split = true
-    @split_bet = @current_bet
-    @money = @money - @current_bet
-    @split_hand = PlayerHand.new
-    @split_hand.add_card(@hand.pop_card)
-  end
-  
-  # Return true if player can split the hand
-  def get_split
-    if @is_split
-      return false
-    end
-    return @hand.get_split && (@money >= current_bet)
   end
   
   # Return the points of the hand
-  def get_points
-    return @hand.get_points
-  end
-  
-  # Return points of the second hand of the split
-  def get_split_points
-    return @split_hand.get_points
+  def get_points_on_hand(hand)
+    return hand.get_points
   end
   
   # Clear the hand
-  def clear_hand
-    @hand.clear_hand
-    @is_split = false
+  def clear_all_hands
+    @hands.clear
   end
   
   # Return true if the hand is a bust
-  def is_busted
-    return @hand.is_bust
+  def is_bust_hand(hand)
+    return hand.is_bust
   end
   
   # Return true if the hand is a blackjack
-  def is_blackjack
-    return @hand.is_blackjack
-  end
-  
-  # Return true if second hand of the split is a bust
-  def is_split_busted
-    return @split_hand.is_bust
-  end
-  
-  # Return true if second hand of the split is a blackjack
-  def is_split_blackjack
-    return @split_hand.is_blackjack
-  end
-  
-  # Make a bet of the given value
-  def make_bet(bet_value)
-    if bet_value > @money
-      return false
-    end
-    
-    if bet_value <= 0
-      return false
-    end
-    
-    @current_bet = bet_value
-    @money = @money - @current_bet
-    return true
+  def is_blackjack_hand(hand)
+    return hand.is_blackjack
   end
   
   # Double the value of the bet
-  def double_bet
-    @money = @money - @current_bet
-    @current_bet = 2 * @current_bet
-  end
-  
-  # Double the value of bet on the second hand of the split
-  def double_split_bet
-    @money = @money - @split_bet
-    @split_bet = 2 * @split_bet
+  def double_bet_on_hand(hand)
+    add_bet_to_hand(hand, hand.get_bet_amount)
   end
   
   # Add a card to the hand
-  def add_card_to_hand(card)
-    @hand.add_card(card)
+  def add_card_to_hand(hand, card)
+    hand.add_card(card)
   end
   
-  # Add a card to the second hand of the split
-  def add_card_to_split_hand(card)
-    @split_hand.add_card(card)
+  # Returns the hands
+  def get_all_hands
+    return @hands
   end
   
-  # Returns the hand
-  def get_hand
-    return @hand
-  end
-  
-  # Returns the second hand of the split
-  def get_split_hand
-    return @split_hand
+  # Split hand
+  def split_hand(hand)
+    new_hand = PlayerHand.new
+    new_hand.add_card(hand.pop_card)
+    add_bet_to_hand(new_hand, hand.get_bet_amount)
+    add_hand(new_hand)
   end
 end

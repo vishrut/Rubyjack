@@ -105,9 +105,9 @@ class GameIO
   
   # Print hands of all the players
   def print_all_hands(players)
-    players.each { |player|
-        self.print_hand(player)
-      }
+    players.each { |player|  
+      self.print_hand(player, player.get_initial_hand)
+    }
   end
   
   # Get the action commands from the input. The parameters describe if double-down and splitting are valid.
@@ -126,7 +126,7 @@ class GameIO
     
     until valid_input do
       input = gets.chomp
-      if input == "h" || input =="s" || (input == "d" && can_double_down) || (input == "x" && can_split)
+      if input == "h" || input =="s" || (input == "d" && can_double_down) || (input == "x" && can_split) 
         valid_input = true
       else
         self.print_msg('invalid_command')
@@ -165,15 +165,15 @@ class GameIO
   end
   
   # Print a message comparing hands of the player and the dealer
-  def print_vs_msg(player, dealer)
+  def print_vs_msg(player, hand, dealer)
     print "Player #{player.id}: "
     
-    if player.is_blackjack
+    if hand.is_blackjack
       print "Blackjack! "
-    elsif player.is_busted
+    elsif hand.is_bust
       print "Bust! "
     else
-      print "#{player.get_points} "
+      print "#{hand.get_points} "
     end
     
     print "vs "
@@ -181,30 +181,7 @@ class GameIO
     
     if dealer.is_blackjack
       print "Blackjack! "
-    elsif dealer.is_busted
-      print "Bust! "
-    else
-      print "#{dealer.get_points} "
-    end
-    puts ""
-  end
-  
-  # Print a message comparing the second hand of the player and the dealer
-  def print_split_vs_msg(player, dealer)
-    self.print_split_separator_2
-    print "Player #{player.id}: "
-    if player.is_split_blackjack
-      print "Blackjack! "
-    elsif player.is_split_busted
-      print "Bust! "
-    else
-      print "#{player.get_split_points} "
-    end
-    print "vs "
-    print "Dealer: "
-    if dealer.is_blackjack
-      print "Blackjack! "
-    elsif dealer.is_busted
+    elsif dealer.is_bust
       print "Bust! "
     else
       print "#{dealer.get_points} "
@@ -217,6 +194,11 @@ class GameIO
     puts "Player: #{player.id}. Blackjack!"
   end
   
+  # Print when player has 21 points
+  def print_21_msg(player)
+    puts "Player: #{player.id}. Scored 21."
+  end
+  
   # For player's first hand when a split is called
   def print_split_separator_1
     puts "--------------------"
@@ -224,11 +206,11 @@ class GameIO
     puts "--------------------"
   end
   
-  # For player's second hand when a split is called
-  def print_split_separator_2
-    puts "--------------------"
-    puts "Player's second hand"
-    puts "--------------------"
+  # For player's first hand when a split is called
+  def print_split_hand_msg
+    puts "-------------------"
+    puts "Player's split hand"
+    puts "-------------------"
   end
   
   # Print when dealing cards
@@ -239,26 +221,16 @@ class GameIO
   end
   
   # Print the hand of the player
-  def print_hand(player)
-    player_hand = player.get_hand
+  def print_hand(player, hand)
+    player_hand = hand
     cards = player_hand.get_hand_cards
     print "Player: #{player.id}. Hand: "
     cards.each { |card|
       print "#{card.symbol}#{card.suit} "
     }
-    puts "Points: #{player.get_points}. Bet: #{player.get_current_bet} "
+    puts "Points: #{player_hand.get_points}. Bet: #{player_hand.get_bet_amount} "
   end
   
-  # Print the second had of the player
-  def print_split_hand(player)
-    player_hand = player.get_split_hand
-    cards = player_hand.get_hand_cards
-    print "Player: #{player.id}. Hand: "
-    cards.each { |card|
-      print "#{card.symbol}#{card.suit} "
-    }
-    puts "Points: #{player.get_split_points}. Bet: #{player.get_split_bet} "
-  end
   
   # Print the dealer's hand
   def print_dealers_hand(dealer)
@@ -269,5 +241,15 @@ class GameIO
       print "#{card.symbol}#{card.suit} "
     }
     puts "Points: #{dealer.get_points}."
+  end
+  
+  # Print the dealer's partial hand
+  def print_dealers_partial_hand(dealer)
+    dealer_hand = dealer.get_hand
+    cards = dealer_hand.get_hand_cards
+    print "Dealer. Hand: "
+    print "#{cards[0].symbol}#{cards[0].suit} "
+    print "XX"
+    puts ""
   end
 end
