@@ -193,7 +193,7 @@ class GameIO
     else
       print "#{dealer.get_points} "
     end
-    puts ""
+    puts "Bet: #{hand.get_bet_amount}"
   end
   
   # Print when player has a blackjack

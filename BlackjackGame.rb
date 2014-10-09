@@ -206,7 +206,9 @@ class BlackjackGame
   
   # Pay the player
   def pay_player(player, amount)
+    puts "Previous Balance: #{player.money} Winnings: #{amount.floor}"
     player.add_money(amount)
+    puts "New Balance: #{player.money}"
   end
   
   # Compares the hand of the player with that of the dealer
@@ -226,31 +228,33 @@ class BlackjackGame
     
     if player_bust
       @game_io.print_msg('player_busted')
+      @game_io.print_player(player)
     elsif dealer_bust && !player_bust && !player_blackjack
-      pay_player(player, 2 * bet)
       @game_io.print_msg('dealer_busted')
+      pay_player(player, 2 * bet)
     elsif dealer_bust && player_blackjack
-      pay_player(player, 2.5 * hand.get_bet_amount)
       @game_io.print_msg('player_blackjack')
+      pay_player(player, 2.5 * hand.get_bet_amount)
     elsif player_blackjack && dealer_blackjack
-      pay_player(player, bet) #return bet
       @game_io.print_msg('blackjack_tie')
+      pay_player(player, bet) #return bet
     elsif !player_blackjack && dealer_blackjack
       @game_io.print_msg('dealer_blackjack')
+      @game_io.print_player(player)
     elsif player_blackjack && !dealer_blackjack
-      pay_player(player, 2.5 * bet)
       @game_io.print_msg('player_blackjack')
+      pay_player(player, 2.5 * bet)
     elsif player_points > dealer_points
-      pay_player(player, 2 * bet)
       @game_io.print_msg('player_wins')
+      pay_player(player, 2 * bet)
     elsif player_points == dealer_points
-      pay_player(player, bet)
       @game_io.print_msg('tie')
+      pay_player(player, bet)
     elsif player_points < dealer_points
       @game_io.print_msg('dealer_wins')
+      @game_io.print_player(player)
     end
 
-    @game_io.print_player(player)
     @game_io.print_separator
     
   end
