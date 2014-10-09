@@ -26,7 +26,7 @@ class Shoe
   def retrieve_card
     card = @cards.pop
     if card.nil?
-      self.reset_shoe
+      self.reset
       card = @cards.pop
     end
     return card
